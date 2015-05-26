@@ -1,0 +1,96 @@
+<div class="row">
+	<div class="two columns">
+		<h3 class="clickr"><span class="optionAtext">c</span><span class="optionBtext">l</span><span class="optionCtext">i</span><span class="optionDtext">c</span><span class="optionAtext">k</span><span class="optionBtext">r</span></h3>
+	</div>
+	<div class="three columns offset-by-seven columns header_right">
+		<a href="dashboard.html">My Account</a> &nbsp; 
+		<a href="index.html">Logout</a>
+	</div>
+</div>
+
+<div class="row" ng-controller="quizzesController">
+	<h5>Create New Quiz</h5>
+	<div class="twelve columns">
+		<form>
+			<div class="row">
+				<div class="three columns">
+					<label for="title">Title</label>
+				</div>
+				<div class="five columns">
+					<input type="text" name="title" id="title" class="u-full-width" ng-model="newQuiz.title">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="three columns">
+					<label for="question1">Question One</label>
+				</div>
+				<div class="five columns">
+					<input type="text" name="question1" id="question1" class="u-full-width" ng-model="newQuiz.questionOne">
+				</div>
+			</div>
+			<div class="row">
+				<div class="three columns">
+					<label for="answerA">Answer A</label>
+				</div>
+				<div class="five columns">
+					<input type="text" name="answerA" id="answerA" class="u-full-width" ng-model="newQuiz.answerA">
+				</div>
+			</div>
+			<div class="row">
+				<div class="three columns">
+					<label for="answerB">Answer B</label>
+				</div>
+				<div class="five columns">
+					<input type="text" name="answerB" id="answerB" class="u-full-width" ng-model="newQuiz.answerB">
+				</div>
+			</div>
+			<div class="row">
+				<div class="three columns">
+					<label for="answerC">Answer C</label>
+				</div>
+				<div class="five columns">
+					<input type="text" name="title" id="answerC" class="u-full-width" ng-model="newQuiz.answerC">
+				</div>
+			</div>
+			<div class="row">
+				<div class="three columns">
+					<label for="answerD">Answer D</label>
+				</div>
+				<div class="five columns">
+					<input type="text" name="title" id="answerD" class="u-full-width" ng-model="newQuiz.answerD">
+				</div>
+			</div>
+<!-- 			<div class="row">
+				<div class="three columns">
+					<label for="">Correct Answer</label>
+				</div>
+				<div class="five columns">
+					<fieldset>
+						<label for="radioA" class="inline">
+							<input type="radio" name="correctAndswer1" id="radioA" value="a">
+							<span>A</span>
+						</label>
+						<label for="radioB" class="inline">
+							<input type="radio" name="correctAndswer1" id="radioB" value="b">
+							<span>B</span>
+						</label>
+						<label for="radioC" class="inline">
+							<input type="radio" name="correctAndswer1" id="radioC" value="c">
+							<span>C</span>
+						</label>
+						<label for="radioD" class="inline">
+							<input type="radio" name="correctAndswer1" id="radioD" value="d">
+							<span>D</span>
+						</label>
+					</fieldset>
+				</div>
+			</div> -->
+		</form>
+
+		<div class="row">
+			<a href=""><button class="button">Add another question</button></a>
+			<a href="" ng-click="addQuiz()"><button class="button-primary">Save</button></a>
+		</div>
+	</div>
+</div>

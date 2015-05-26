@@ -13,6 +13,9 @@ clickrModule.config(function ($routeProvider){
 		.when("/join", {
 			templateUrl: "partials/register.html"
 		})
+		.when("/create", {
+			templateUrl: "partials/create.html"
+		})
 		.otherwise({
 			redirectTo: "/"
 		});
@@ -91,3 +94,34 @@ clickrModule.factory("UsersFactory", function($http){
 	// Return the factory so that everything inside of it is available to the CustomerController
 	return factory;
 });
+
+////// Quizzes Controller
+clickrModule.controller("quizzesController", function ($scope, quizFactory){
+
+	// add a quiz from the Create Quiz page
+	$scope.addQuiz = function(){
+		console.log($scope.newQuiz);
+		quizFactory.addQuiz($scope.newQuiz, function(){
+			$scope.newQuiz = {};
+			quizFactory.getQuizzes(function(data){
+				$scope.quizzes = data;
+			});
+		})
+	}
+
+})
+
+////// Quizzes Factory
+clickrModule.factory("quizFactory", function($http) {
+
+	var factory = {};
+
+	factory.addQuiz = function(info, callback) {
+		$http.post("add_quiz", info).success(function(output){
+			callback(output);
+		});
+	}
+
+	return factory;
+
+})
