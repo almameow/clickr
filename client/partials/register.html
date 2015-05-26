@@ -1,0 +1,41 @@
+<div ng-controller="UsersController">
+	<div class="row">
+		<div class="two columns">
+			<a href="#/"><h3 class="clickr"><span class="optionAtext">c</span><span class="optionBtext">l</span><span class="optionCtext">i</span><span class="optionDtext">c</span><span class="optionAtext">k</span><span class="optionBtext">r</span></h3></a>
+		</div>
+		<div class="ten columns header_right">
+			<a href="#/login">Login</a> &nbsp; 
+			<span class="greyOut">Register</span>
+		</div>
+	</div>
+
+	<div class="row">
+		<form class="four columns offset-by-four" name="form" novalidate>
+			<div class="row">
+				<input class="u-full-width" type="text" placeholder="First name" name="fname" ng-model="new_user.fname" required="">
+				<div ng-show="form.$submitted || form.fname.$touched">
+					<div ng-show="form.fname.$error.required" class="text-danger">First name is required</div>
+				</div>
+			</div>
+			<div class="row">
+				<input class="u-full-width" type="text" placeholder="Last name" name="lname" ng-model="new_user.lname" required="">
+				<div ng-show="form.$submitted || form.lname.$touched">
+					<div ng-show="form.lname.$error.required" class="text-danger">Last name is required</div>
+				</div>
+			</div>
+			<div class="row">
+				<input class="u-full-width" type="email" placeholder="Email" name="email" ng-model="new_user.email" required="">
+				<div ng-show="form.$submitted || form.email.$touched">
+					<div ng-show="form.email.$error.required" class="text-danger">Email is required</div>
+				</div>
+			</div>
+			<div class="row">
+				<input class="u-full-width" type="password" placeholder="Password" name="password">
+			</div>
+			<div class="row">
+				<input class="u-full-width" type="password" placeholder="Confirm password" name="confirmPass">
+			</div>
+			<input class="button-primary" type="submit" value="Register">
+		</form>
+	</div>
+</div>

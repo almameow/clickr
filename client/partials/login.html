@@ -1,0 +1,35 @@
+<div ng-controller="UsersController">
+	<div class="row">
+		<div class="two columns">
+			<a href="#/"><h3 class="clickr"><span class="optionAtext">c</span><span class="optionBtext">l</span><span class="optionCtext">i</span><span class="optionDtext">c</span><span class="optionAtext">k</span><span class="optionBtext">r</span></h3></a>
+		</div>
+		<div class="ten columns header_right">
+			<span class="greyOut">Login</span> &nbsp; 
+			<a href="#/join">Register</a>
+		</div>
+	</div>
+
+	<div class="row">
+		<form class="four columns offset-by-four" name="form" novalidate>
+			<div class="row">
+				<input class="u-full-width" type="email" placeholder="Email" name="email" ng-model="login_user.email" required="">
+				<div ng-show="form.$submitted || form.email.$touched">
+					<div ng-show="form.email.$error.required" class="optionAtext">Email is required</div>
+				</div>
+			</div>
+			<div class="row">
+				<input class="u-full-width" type="password" placeholder="Password" name="pass" ng-model="login_user.password" required="">
+				<div ng-show="form.$submitted || form.pass.$touched">
+					<div ng-show="form.pass.$error.required" class="optionAtext">Password is required</div>
+				</div>
+			</div>
+			<input class="button-primary" type="submit" value="Submit" ng-disabled="form.$invalid" ng-click="login(login_user)">
+		</form>
+	</div>
+
+	<div class="row">
+		<div class="four columns offset-by-four">
+			<p class="optionAtext">{{errormsg}}</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>clickr</title>
+	<!-- Require Angular & Angular with routes (in order to view partials) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"/></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"/></script>
+	<!-- Skeleton CSS -->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/skeleton.css">
+	<!-- Non-skeleton CSS -->
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
+  	<!-- Script -->
+	<script src="script.js"/></script>
+</head>
+<body ng-app="clickrApp">
+<div class="container">
+	<div class="wrap">
+		<div class="wrap_background">
+		</div>
+		<div ng-view="">
+		</div>
+	</div>
+</div>
+</body>
+</html>
