@@ -51,6 +51,7 @@ clickrModule.controller("UsersController", function($scope, $window, $rootScope,
 
 	$scope.reset();
 
+	//login
 	$scope.login = function(user){
 		UsersFactory.logIn(user, function(info){
 			if( info === "Error: There is no user with this email address." || info === "Error: Incorrect password."){
@@ -61,11 +62,9 @@ clickrModule.controller("UsersController", function($scope, $window, $rootScope,
 				$scope.errormsg = "";
 				$scope.successmsg = "";
 				console.log("login user email: ", user.email);
-				console.log("localStorageService: ", localStorageService.get("user"));
-				localStorageService.set("user", user.email);
 				
 				// Redirect to dashboard
-				$window.location.href = "/dashboard.html";
+				$window.location.href = "#/";
 			}
 		})
 	}

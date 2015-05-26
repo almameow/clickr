@@ -14,7 +14,7 @@ module.exports = (function(){
 			
 			// If user with same email already exists in db, do not add to db
 			User.findOne({email: req.body.email}, function(error, response){ 
-				console.log("FineOne reqult: ", response);
+				console.log("FindOne reqult: ", response);
 				if(response){ //user exists
 					console.log("User already exists in db");
 					res.send("Error: A user with this email exists.");
