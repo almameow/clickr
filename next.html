@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clicker Quiz</title>
+    <!-- Skeleton CSS -->
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/skeleton.css">
+  <!-- This stylesheet exclusively for Quiz view -->
+  <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type ="text/javascript">
+    $(document).ready(function (){ 
+      var seconds;
+      var temp;
+      var clickOnce = true;
+      var correctAnswer = "C"
+
+      function countdown() {
+        if (clickOnce == true) {
+          seconds = document.getElementById('countdown').innerHTML;
+          seconds = parseInt(seconds, 10);
+
+          if (seconds == 0) {
+            temp = document.getElementById('countdown');
+            temp.innerHTML = "0";
+            return;
+          }
+
+          seconds--;
+          temp = document.getElementById('countdown');
+          temp.innerHTML = seconds;
+          timeoutMyOswego = setTimeout(countdown, 1000);
+
+          if ( seconds == 0 ) {
+            $(".realAnswer").html(correctAnswer + " is the correct answer!");
+                  }
+              }  
+            } 
+              
+            $(".startButton").click(function() {
+              countdown();
+            })
+        })
+    </script>
+
+  </head>
+<body>
+<div class="container">
+  <div class="wrap">
+    <div class="wrap_background"></div>
+    <div class="row">
+      <div class="twelve columns">
+        <h1>Timer: <span id="countdown">10</span></h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Is this the second question?</h3>
+        <h5 class="realAnswer optionC"></h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <table class="u-full-width">
+        <tbody>
+          <tr>
+            <td>
+              <span class="options optionA">A</span> No
+            </td>
+            <td>
+              <span class="answers answerA"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="options optionB">B</span> Nope
+            </td>
+            <td>
+              <span class="answers answerB"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="options optionC">C</span> Yes it is
+            </td>
+            <td>
+              <span class="answers answerC"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="options optionD">D</span> All of the above
+            </td>
+            <td>
+              <span class="answers answerD"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row">
+      <div class="six columns">
+        <button class="startButton">Start Quiz</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
