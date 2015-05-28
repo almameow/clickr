@@ -19,8 +19,8 @@ clickrModule.config(function ($routeProvider){
 		.when("/home", {
 			templateUrl: "partials/dashboard.html"
 		})
-		.when("/edit/:id", {
-			templateUrl: "partials/edit.html"
+		.when("/quiz/:id", {
+			templateUrl: "partials/quiz.html"
 		})
 		.otherwise({
 			redirectTo: "/"
@@ -140,12 +140,19 @@ clickrModule.factory("quizFactory", function($http) {
 		})
 	}
 
+	factory.getOneQuiz = function(data, callback){
+		// console.log(data);
+		$http.post('/single_quiz/'+ data).success(function(data){
+			callback(data);
+		})
+	}
+
 	return factory;
 
 })
 
 ////// Dashboard Controller
-clickrModule.controller("dashboardController", function ($scope, quizFactory){
+clickrModule.controller("dashboardController", function($scope, quizFactory, $routeParams){
 
 	quizFactory.getQuizzes(function(data){
 		$scope.quizzes = data;
@@ -159,5 +166,13 @@ clickrModule.controller("dashboardController", function ($scope, quizFactory){
 			})
 		})
 	}
+
+	$scope.quiz = '';
+	$scope.quiz_id = $routeParams.id;
+	
+	quizFactory.getOneQuiz($routeParams.id, function(data){
+		$scope.quiz = data;
+		console.log(data);
+	})
 
 })

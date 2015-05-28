@@ -27,4 +27,8 @@ module.exports = function(app){
 	app.post('/remove_quiz', function(req, res) {
 		quizzes.remove(req, res);
 	})
+
+	app.post('/single_quiz/:id', function(req, res){
+		quizzes.getOneQuiz(req, res);
+	})
 }

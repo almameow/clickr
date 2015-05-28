@@ -23,8 +23,8 @@
 				<tr ng-repeat='quiz in quizzes | orderBy:"-created"'>
 					<td ng-bind="quiz.title"></td>
 					<td>12345</td>
-					<td><a href="quiz.html" target="_blank">Begin Quiz</a></td>
-					<td><a href="edit.html">Edit</a></td>
+					<td><a href="#/quiz/{{quiz._id}}" target="_blank">Begin Quiz</a></td>
+					<td><a href="#/edit/{{quiz._id}}">Edit</a></td>
 					<td><a href="" ng-click="removeQuiz(quiz)">Delete</a></td>
 				</tr>
 			</tbody>

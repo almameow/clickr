@@ -39,6 +39,19 @@ module.exports =(function() {
 					res.json(response);
 				}
 			})
+		},
+
+		getOneQuiz: function(req, res){
+			console.log(req.params.id);
+			Quiz.find({_id: req.params.id}, function(err, data){
+				if(err)
+				{
+					console.log(err);
+				} else {
+					console.log(data);
+					res.json(data[0]);
+				}
+			})
 		}
 	}
 })();
