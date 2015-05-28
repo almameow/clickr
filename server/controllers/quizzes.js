@@ -42,7 +42,6 @@ module.exports =(function() {
 		},
 
 		getOneQuiz: function(req, res){
-			console.log(req.params.id);
 			Quiz.find({_id: req.params.id}, function(err, data){
 				if(err)
 				{
@@ -52,6 +51,19 @@ module.exports =(function() {
 					res.json(data[0]);
 				}
 			})
+		},
+
+		updateQuiz: function(req, res) {
+			Quiz.update({_id: req.params.id, question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD}, function(err, response) {
+				if(err) {
+					console.log("Quiz was not updated in database.");
+				}
+				else {
+					console.log("Quiz updated successfully!");
+					res.json(response);
+				}
+			})
 		}
+
 	}
 })();

@@ -22,6 +22,9 @@ clickrModule.config(function ($routeProvider){
 		.when("/quiz/:id", {
 			templateUrl: "partials/quiz.html"
 		})
+		.when("/edit/:id", {
+			templateUrl: "partials/edit.html"
+		})
 		.otherwise({
 			redirectTo: "/"
 		});
@@ -122,29 +125,42 @@ clickrModule.factory("quizFactory", function($http) {
 
 	var factory = {};
 
+	// get all quizzes from database
 	factory.getQuizzes = function (callback){
 		$http.get('/quizzes').success(function(output){
 			callback(output);
 		})
 	};
 
+	// add a quiz into the database
 	factory.addQuiz = function(info, callback) {
 		$http.post("add_quiz", info).success(function(output){
 			callback(output);
 		});
 	}
 
+	// remove a quiz from the database
 	factory.removeQuiz = function(info, callback) {
 		$http.post('/remove_quiz', info).success(function(output){
 			callback(output);
 		})
 	}
 
+	// get one quiz from the database with specific ID
 	factory.getOneQuiz = function(data, callback){
 		// console.log(data);
-		$http.post('/single_quiz/'+ data).success(function(data){
+		$http.post('/get_quiz/'+ data).success(function(data){
 			callback(data);
 		})
+	}
+
+	// update a quiz in the database with specific ID
+	factory.updateQuiz = function(data, info, callback) {
+		console.log(data);
+		console.log(info);
+		$http.post("/update_quiz/"+ data, info).success(function(output){
+			callback(output);
+		});
 	}
 
 	return factory;
@@ -154,11 +170,12 @@ clickrModule.factory("quizFactory", function($http) {
 ////// Dashboard Controller
 clickrModule.controller("dashboardController", function($scope, quizFactory, $routeParams){
 
+	// get all quizzes through factory to be displayed on dashboard page
 	quizFactory.getQuizzes(function(data){
 		$scope.quizzes = data;
 	})
 
-	// remove a quiz from the db
+	// call on factory to remove a quiz from the database
 	$scope.removeQuiz = function(quiz){
 		quizFactory.removeQuiz(quiz, function() {
 			quizFactory.getQuizzes(function(data){
@@ -166,13 +183,20 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, $ro
 			})
 		})
 	}
-
-	$scope.quiz = '';
-	$scope.quiz_id = $routeParams.id;
 	
+	// call on factory to grab quiz with specific ID
 	quizFactory.getOneQuiz($routeParams.id, function(data){
 		$scope.quiz = data;
-		console.log(data);
-	})
+	});
+
+	// call on factory to update quiz with specific ID
+	$scope.updateQuiz = function(){
+		quizFactory.updateQuiz($routeParams.id, $scope.updatedQuiz, function(){
+			$scope.updatedQuiz = {};
+			quizFactory.getOneQuiz($routeParams.id, function(data){
+				$scope.quiz = data;
+			});
+		})
+	}
 
 })

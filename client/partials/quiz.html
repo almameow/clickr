@@ -46,79 +46,78 @@
 </head>
 <body>
 
-<div class="row">
-  <div class="two columns">
-    <h3 class="clickr"><span class="optionAtext">c</span><span class="optionBtext">l</span><span class="optionCtext">i</span><span class="optionDtext">c</span><span class="optionAtext">k</span><span class="optionBtext">r</span></h3>
+  <div class="row">
+    <div class="two columns">
+      <h3 class="clickr"><span class="optionAtext">c</span><span class="optionBtext">l</span><span class="optionCtext">i</span><span class="optionDtext">c</span><span class="optionAtext">k</span><span class="optionBtext">r</span></h3>
+    </div>
+    <div class="three columns offset-by-seven columns header_right">
+      <a href="#/home">My Account</a> &nbsp; 
+      <a href="#/">Logout</a>
+    </div>
   </div>
-  <div class="three columns offset-by-seven columns header_right">
-    <a href="#/home">My Account</a> &nbsp; 
-    <a href="#/">Logout</a>
+
+  <div ng-controller="dashboardController">
+    <div class="wrap_background"></div>
+      <div class="row">
+        <div class="twelve columns">
+          <h1>Timer: <span id="countdown">10</span></h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="twelve columns">
+          <h3>{{quiz.question}}</h3>
+          <h5 class="realAnswer optionD"></h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <table class="u-full-width">
+          <tbody>
+            <tr>
+              <td>
+                <span class="options optionA">A</span> {{quiz.answerA}}
+              </td>
+              <td>
+                <span class="answers answerA"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="options optionB">B</span> {{quiz.answerB}}
+              </td>
+              <td>
+                <span class="answers answerB"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="options optionC">C</span> {{quiz.answerC}}
+              </td>
+              <td>
+                <span class="answers answerC"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="options optionD">D</span> {{quiz.answerD}}
+              </td>
+              <td>
+                <span class="answers answerD"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="six columns">
+          <button class="startButton">Start Quiz</button>
+        </div>
+        <div class="six columns">
+          <a href="next.html"><button class="nextButton">Next Question</button></a>
+        </div>
+      </div>
   </div>
-</div>
-
-
-<div ng-controller="dashboardController">
-  <div class="wrap_background"></div>
-    <div class="row">
-      <div class="twelve columns">
-        <h1>Timer: <span id="countdown">10</span></h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="twelve columns">
-        <h3>{{quiz.question}}</h3>
-        <h5 class="realAnswer optionD"></h5>
-      </div>
-    </div>
-
-    <div class="row">
-      <table class="u-full-width">
-        <tbody>
-          <tr>
-            <td>
-              <span class="options optionA">A</span> {{quiz.answerA}}
-            </td>
-            <td>
-              <span class="answers answerA"></span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="options optionB">B</span> {{quiz.answerB}}
-            </td>
-            <td>
-              <span class="answers answerB"></span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="options optionC">C</span> {{quiz.answerC}}
-            </td>
-            <td>
-              <span class="answers answerC"></span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="options optionD">D</span> {{quiz.answerD}}
-            </td>
-            <td>
-              <span class="answers answerD"></span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="row">
-      <div class="six columns">
-        <button class="startButton">Start Quiz</button>
-      </div>
-      <div class="six columns">
-        <a href="next.html"><button class="nextButton">Next Question</button></a>
-      </div>
-    </div>
-</div>
 </body>
 </html>
