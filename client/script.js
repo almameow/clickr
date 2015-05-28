@@ -16,6 +16,12 @@ clickrModule.config(function ($routeProvider){
 		.when("/create", {
 			templateUrl: "partials/create.html"
 		})
+		.when("/home", {
+			templateUrl: "partials/dashboard.html"
+		})
+		.when("/edit/:id", {
+			templateUrl: "partials/edit.html"
+		})
 		.otherwise({
 			redirectTo: "/"
 		});
@@ -116,12 +122,42 @@ clickrModule.factory("quizFactory", function($http) {
 
 	var factory = {};
 
+	factory.getQuizzes = function (callback){
+		$http.get('/quizzes').success(function(output){
+			callback(output);
+		})
+	};
+
 	factory.addQuiz = function(info, callback) {
 		$http.post("add_quiz", info).success(function(output){
 			callback(output);
 		});
 	}
 
+	factory.removeQuiz = function(info, callback) {
+		$http.post('/remove_quiz', info).success(function(output){
+			callback(output);
+		})
+	}
+
 	return factory;
+
+})
+
+////// Dashboard Controller
+clickrModule.controller("dashboardController", function ($scope, quizFactory){
+
+	quizFactory.getQuizzes(function(data){
+		$scope.quizzes = data;
+	})
+
+	// remove a quiz from the db
+	$scope.removeQuiz = function(quiz){
+		quizFactory.removeQuiz(quiz, function() {
+			quizFactory.getQuizzes(function(data){
+				$scope.quizzes = data;
+			})
+		})
+	}
 
 })
