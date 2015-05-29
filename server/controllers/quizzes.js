@@ -55,7 +55,7 @@ module.exports =(function() {
 		},
 
 		updateQuiz: function(req, res) {
-			Quiz.update({_id: req.params.id, question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD}, function(err, response) {
+			Quiz.update({question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD}, function(err, response) {
 				if(err) {
 					console.log("Quiz was not updated in database.");
 				}

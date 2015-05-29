@@ -127,10 +127,8 @@ clickrModule.factory("quizFactory", function($http) {
 	};
 
 	// add a quiz into the database
-	factory.addQuiz = function(info, callback) {
-		$http.post("add_quiz", info).success(function(output){
-			callback(output);
-		});
+	factory.addQuiz = function(info) {
+		$http.post("add_quiz", info).success(function(output));
 	}
 
 	// remove a quiz from the database
@@ -177,32 +175,13 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, $ro
 			})
 		})
 	}
-	
-	// call on factory to grab quiz with specific ID
-	quizFactory.getOneQuiz($routeParams.id, function(data){
-		$scope.quiz = data;
-	});
-
-	// call on factory to update quiz with specific ID
-	$scope.updateQuiz = function(){
-		quizFactory.updateQuiz($routeParams.id, $scope.updatedQuiz, function(){
-			$scope.updatedQuiz = {};
-			quizFactory.getOneQuiz($routeParams.id, function(data){
-				$scope.quiz = data;
-			});
-		})
-	}
 
 	// add a quiz from the Create Quiz page
 	$scope.addQuiz = function(){
 		makecode();
 		$scope.newQuiz["quizCode"] = quizCode;
 		console.log($scope.newQuiz);
-		quizFactory.addQuiz($scope.newQuiz, function(){
-			$scope.newQuiz = {};
-			quizFactory.getQuizzes(function(data){
-				$scope.quizzes = data;
-			});
+		quizFactory.addQuiz($scope.newQuiz);
 		})
 	}
 
@@ -218,4 +197,22 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, $ro
 	    return quizCode;
 	}
 
+})
+
+//// Quiz Controller
+clickrModule.controller("quizController", function($scope, $routeParams, quizFactory) {
+	// call on factory to grab quiz with specific ID
+	quizFactory.getOneQuiz($routeParams.id, function(data){
+		$scope.quiz = data;
+	});
+
+	// call on factory to update quiz with specific ID
+	$scope.updateQuiz = function(){
+		quizFactory.updateQuiz($routeParams.id, $scope.updatedQuiz, function(){
+			$scope.updatedQuiz = {};
+			quizFactory.getOneQuiz($routeParams.id, function(data){
+				$scope.quiz = data;
+			});
+		})
+	}
 })
