@@ -128,7 +128,7 @@ clickrModule.factory("quizFactory", function($http) {
 
 	// add a quiz into the database
 	factory.addQuiz = function(info) {
-		$http.post("add_quiz", info).success(function(output));
+		$http.post("add_quiz", info).success();
 	}
 
 	// remove a quiz from the database
@@ -178,16 +178,19 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, $ro
 
 	// add a quiz from the Create Quiz page
 	$scope.addQuiz = function(){
-		makecode();
+		createQuizCode();
 		$scope.newQuiz["quizCode"] = quizCode;
-		console.log($scope.newQuiz);
-		quizFactory.addQuiz($scope.newQuiz);
+		quizFactory.addQuiz($scope.newQuiz, function(){
+			$scope.newQuiz = {};
+			quizFactory.getQuizzes(function(data){
+				$scope.quizzes = data;
+			});
 		})
 	}
 
 	var quizCode = "";
 
-	function makecode()
+	function createQuizCode()
 	{
 	    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
