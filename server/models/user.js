@@ -12,3 +12,17 @@ var UserSchema = new mongoose.Schema({
 });
 
 mongoose.model('User', UserSchema);
+
+// Create our QuizSchema
+var QuizSchema = new mongoose.Schema({
+	title: String,
+	question: String,
+	answerA: String,
+	answerB: String,
+	answerC: String,
+	answerD: String,
+	quizCode: String,
+	created: {type: Date, default: Date.now }
+});
+
+mongoose.model('Quiz', QuizSchema);
