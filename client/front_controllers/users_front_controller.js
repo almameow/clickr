@@ -1,9 +1,6 @@
 ////// Users Controller
 clickrModule.controller("UsersController", function($scope, $window, $location, localStorageService, UsersFactory){
 	$scope.master = {};
-	localStorageService.set("fake", "howdoimakethiswork");
-	$scope.fake = $location.path();
-	console.log("Current location: ", $scope.fake)
 
 	// Reset registration form
 	$scope.reset = function(form) {
@@ -35,8 +32,7 @@ clickrModule.controller("UsersController", function($scope, $window, $location, 
 
 	//login
 	$scope.login = function(user){
-		$scope.currentUser = user
-		console.log("Current user:", $scope.currentUser);
+		console.log("Current user:", user);
 		UsersFactory.logIn(user, function(info){
 			if( info === "Error: There is no user with this email address." || info === "Error: Incorrect password."){
 				$scope.successmsg = "";
@@ -45,14 +41,12 @@ clickrModule.controller("UsersController", function($scope, $window, $location, 
 			else{
 				$scope.errormsg = "";
 				$scope.successmsg = "";
-				console.log("login user email: ", $scope.currentUser.email);
+				console.log("output from controller: ", info);
 				
 				// Redirect to dashboard
 				//This is not the right way to do this.....not tracking which user is logged in!
 				//$window.location.href = "#/dashboard";
-				$location.path("/home/" + $scope.currentUser.email);
-
-				console.log("Fake: ", $scope.fake)
+				$location.path("/home/" + info._id);
 			}
 		})
 	}
