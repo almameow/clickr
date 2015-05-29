@@ -1,5 +1,5 @@
 // Create clickr Module
-var clickrModule = angular.module("clickrApp", ['ngRoute']);
+var clickrModule = angular.module("clickrApp", ['ngRoute', 'LocalStorageModule']);
 
 // Use the config method to set up routing for partials
 clickrModule.config(function ($routeProvider){
