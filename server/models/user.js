@@ -21,6 +21,7 @@ var QuizSchema = new mongoose.Schema({
 	answerB: String,
 	answerC: String,
 	answerD: String,
+	quizCode: String,
 	created: {type: Date, default: Date.now }
 });
 

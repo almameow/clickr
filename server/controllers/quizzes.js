@@ -18,7 +18,7 @@ module.exports =(function() {
 		},
 
 		add: function(req, res) {
-			var new_quiz = new Quiz({title: req.body.title, question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD});
+			var new_quiz = new Quiz({title: req.body.title, question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD, quizCode: req.body.quizCode});
 			new_quiz.save(function(err, response) {
 				if(err) {
 					console.log('Quiz was not saved in database.');

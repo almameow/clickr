@@ -104,22 +104,6 @@ clickrModule.factory("UsersFactory", function($http){
 	return factory;
 });
 
-////// Quizzes Controller
-clickrModule.controller("quizzesController", function ($scope, quizFactory){
-
-	// add a quiz from the Create Quiz page
-	$scope.addQuiz = function(){
-		console.log($scope.newQuiz);
-		quizFactory.addQuiz($scope.newQuiz, function(){
-			$scope.newQuiz = {};
-			quizFactory.getQuizzes(function(data){
-				$scope.quizzes = data;
-			});
-		})
-	}
-
-})
-
 ////// Quizzes Factory
 clickrModule.factory("quizFactory", function($http) {
 
@@ -170,7 +154,7 @@ clickrModule.factory("quizFactory", function($http) {
 ////// Dashboard Controller
 clickrModule.controller("dashboardController", function($scope, quizFactory, $routeParams){
 
-	// get all quizzes through factory to be displayed on dashboard page
+	// call on factory to get all quizzes to be displayed on dashboard page
 	quizFactory.getQuizzes(function(data){
 		$scope.quizzes = data;
 	})
@@ -197,6 +181,31 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, $ro
 				$scope.quiz = data;
 			});
 		})
+	}
+
+	// add a quiz from the Create Quiz page
+	$scope.addQuiz = function(){
+		makecode();
+		$scope.newQuiz["quizCode"] = quizCode;
+		console.log($scope.newQuiz);
+		quizFactory.addQuiz($scope.newQuiz, function(){
+			$scope.newQuiz = {};
+			quizFactory.getQuizzes(function(data){
+				$scope.quizzes = data;
+			});
+		})
+	}
+
+	var quizCode = "";
+
+	function makecode()
+	{
+	    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+	    for( var i=0; i < 5; i++ )
+	        quizCode += possible.charAt(Math.floor(Math.random() * possible.length));
+
+	    return quizCode;
 	}
 
 })
