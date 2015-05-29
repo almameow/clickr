@@ -16,6 +16,9 @@ clickrModule.config(function ($routeProvider){
 		.when("/create", {
 			templateUrl: "partials/create.html"
 		})
+		.when("/home/:id", {
+			templateUrl: "partials/dashboard.html"
+		})
 		.when("/home", {
 			templateUrl: "partials/dashboard.html"
 		})
@@ -31,9 +34,11 @@ clickrModule.config(function ($routeProvider){
 });
 
 ////// Users Controller
-clickrModule.controller("UsersController", function($scope, $window, $rootScope, UsersFactory){
+clickrModule.controller("UsersController", function($scope, $window, $location, localStorageService, UsersFactory){
 	$scope.master = {};
-	console.log($rootScope.user);
+	localStorageService.set("fake", "howdoimakethiswork");
+	$scope.fake = $location.path();
+	console.log("Current location: ", $scope.fake)
 
 	// Reset registration form
 	$scope.reset = function(form) {
@@ -63,7 +68,10 @@ clickrModule.controller("UsersController", function($scope, $window, $rootScope,
 
 	$scope.reset();
 
+	//login
 	$scope.login = function(user){
+		$scope.currentUser = user
+		console.log("Current user:", $scope.currentUser);
 		UsersFactory.logIn(user, function(info){
 			if( info === "Error: There is no user with this email address." || info === "Error: Incorrect password."){
 				$scope.successmsg = "";
@@ -72,12 +80,14 @@ clickrModule.controller("UsersController", function($scope, $window, $rootScope,
 			else{
 				$scope.errormsg = "";
 				$scope.successmsg = "";
-				console.log("login user email: ", user.email);
-				console.log("localStorageService: ", localStorageService.get("user"));
-				localStorageService.set("user", user.email);
+				console.log("login user email: ", $scope.currentUser.email);
 				
 				// Redirect to dashboard
-				$window.location.href = "/dashboard.html";
+				//This is not the right way to do this.....not tracking which user is logged in!
+				//$window.location.href = "#/dashboard";
+				$location.path("/home/" + $scope.currentUser.email);
+
+				console.log("Fake: ", $scope.fake)
 			}
 		})
 	}

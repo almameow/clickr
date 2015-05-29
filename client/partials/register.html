@@ -14,28 +14,43 @@
 			<div class="row">
 				<input class="u-full-width" type="text" placeholder="First name" name="fname" ng-model="new_user.fname" required="">
 				<div ng-show="form.$submitted || form.fname.$touched">
-					<div ng-show="form.fname.$error.required" class="text-danger">First name is required</div>
+					<div ng-show="form.fname.$error.required" class="optionAtext">First name is required</div>
 				</div>
 			</div>
 			<div class="row">
 				<input class="u-full-width" type="text" placeholder="Last name" name="lname" ng-model="new_user.lname" required="">
 				<div ng-show="form.$submitted || form.lname.$touched">
-					<div ng-show="form.lname.$error.required" class="text-danger">Last name is required</div>
+					<div ng-show="form.lname.$error.required" class="optionAtext">Last name is required</div>
 				</div>
 			</div>
 			<div class="row">
 				<input class="u-full-width" type="email" placeholder="Email" name="email" ng-model="new_user.email" required="">
 				<div ng-show="form.$submitted || form.email.$touched">
-					<div ng-show="form.email.$error.required" class="text-danger">Email is required</div>
+					<div ng-show="form.email.$error.required" class="optionAtext">Email is required</div>
 				</div>
 			</div>
 			<div class="row">
-				<input class="u-full-width" type="password" placeholder="Password" name="password">
+				<input class="u-full-width" type="password" placeholder="Password" name="pass" ng-model="new_user.password" required="">
+				<div ng-show="form.$submitted || form.pass.$touched">
+					<div ng-show="form.pass.$error.required" class="optionAtext">Password is required</div>
+				</div>
 			</div>
 			<div class="row">
-				<input class="u-full-width" type="password" placeholder="Confirm password" name="confirmPass">
+				<input class="u-full-width" type="password" placeholder="Confirm password" name="pass2" ng-model="new_user.pass2" required="">
+				<div ng-show="form.$submitted || form.pass2.$touched">
+					<div ng-show="form.pass2.$error.required" class="optionAtext">This field is required</div>
+				</div>
 			</div>
-			<input class="button-primary" type="submit" value="Register">
+			<div class="u-full-width">
+				<input class="button six columns" type="buton" value="Reset" ng-click="reset(form)">
+				<input class="button-primary six columns" type="submit" value="Register" ng-disabled="form.$invalid" ng-click="join(new_user)">
+			</div>
 		</form>
+	</div>
+	<div class="row">
+		<div class="four columns offset-by-four">
+			<p class="optionAtext">{{errormsg}}</p>
+			<p class="optionDtext">{{successmsg}}</p>
+		</div>
 	</div>
 </div>
