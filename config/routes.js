@@ -14,6 +14,7 @@ module.exports = function(app){
 		users.login(request, response);
 	})
 
+	// Get all user's quizzes
 	app.get('/quizzes', function(req, res){
 		quizzes.show(req, res);
 	})

@@ -4,6 +4,7 @@ var Quiz = mongoose.model('Quiz');
 module.exports =(function() {
 	return {
 		show: function(req, res) {
+			//right now, pulling ALL quizzes, regardless of user
 			Quiz.find({}, function(err, results){
 				if(err)
 				{
