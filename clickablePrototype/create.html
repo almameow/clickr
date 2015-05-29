@@ -22,16 +22,16 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row" ng-controller="quizzesController">
 			<h5>Create New Quiz</h5>
 			<div class="twelve columns">
-				<form>
+				<form ng-submit="addQuiz()">
 					<div class="row">
 						<div class="three columns">
 							<label for="title">Title</label>
 						</div>
 						<div class="five columns">
-							<input type="text" name="title" id="title" class="u-full-width">
+							<input type="text" name="title" id="title" class="u-full-width" ng-model="newQuiz.title">
 						</div>
 					</div>
 
@@ -40,7 +40,7 @@
 							<label for="question1">Question One</label>
 						</div>
 						<div class="five columns">
-							<input type="text" name="question1" id="question1" class="u-full-width">
+							<input type="text" name="question1" id="question1" class="u-full-width" ng-model="newQuiz.questionOne">
 						</div>
 					</div>
 					<div class="row">
@@ -48,7 +48,7 @@
 							<label for="answerA">Answer A</label>
 						</div>
 						<div class="five columns">
-							<input type="text" name="answerA" id="answerA" class="u-full-width">
+							<input type="text" name="answerA" id="answerA" class="u-full-width" ng-model="newQuiz.answerA">
 						</div>
 					</div>
 					<div class="row">
@@ -56,7 +56,7 @@
 							<label for="answerB">Answer B</label>
 						</div>
 						<div class="five columns">
-							<input type="text" name="answerB" id="answerB" class="u-full-width">
+							<input type="text" name="answerB" id="answerB" class="u-full-width" ng-model="newQuiz.answerB">
 						</div>
 					</div>
 					<div class="row">
@@ -64,7 +64,7 @@
 							<label for="answerC">Answer C</label>
 						</div>
 						<div class="five columns">
-							<input type="text" name="title" id="answerC" class="u-full-width">
+							<input type="text" name="title" id="answerC" class="u-full-width" ng-model="newQuiz.answerC">
 						</div>
 					</div>
 					<div class="row">
@@ -72,7 +72,7 @@
 							<label for="answerD">Answer D</label>
 						</div>
 						<div class="five columns">
-							<input type="text" name="title" id="answerD" class="u-full-width">
+							<input type="text" name="title" id="answerD" class="u-full-width" ng-model="newQuiz.answerD">
 						</div>
 					</div>
 					<div class="row">

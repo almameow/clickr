@@ -1,5 +1,6 @@
 // This is /config/routes.js
 var users = require("./../server/controllers/users.js");
+var quizzes = require('./../server/controllers/quizzes.js');
 
 module.exports = function(app){
 	// Receive post request via AJAX to /add
@@ -11,5 +12,29 @@ module.exports = function(app){
 	// Login user
 	app.post("/login", function(request, response){
 		users.login(request, response);
+	})
+
+	app.get('/quizzes', function(req, res){
+		quizzes.show(req, res);
+	})
+
+	// Add quiz
+	app.post('/add_quiz', function(req, res){
+		quizzes.add(req, res);
+	})
+
+	// Remove quiz
+	app.post('/remove_quiz', function(req, res) {
+		quizzes.remove(req, res);
+	})
+
+	// Show quiz
+	app.post('/get_quiz/:id', function(req, res){
+		quizzes.getOneQuiz(req, res);
+	})
+
+	// Edit quiz
+	app.post('/update_quiz/:id', function(req, res){
+		quizzes.updateQuiz(req, res);
 	})
 }

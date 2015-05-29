@@ -13,6 +13,18 @@ clickrModule.config(function ($routeProvider){
 		.when("/join", {
 			templateUrl: "partials/register.html"
 		})
+		.when("/create", {
+			templateUrl: "partials/create.html"
+		})
+		.when("/home", {
+			templateUrl: "partials/dashboard.html"
+		})
+		.when("/quiz/:id", {
+			templateUrl: "partials/quiz.html"
+		})
+		.when("/edit/:id", {
+			templateUrl: "partials/edit.html"
+		})
 		.otherwise({
 			redirectTo: "/"
 		});
@@ -51,7 +63,6 @@ clickrModule.controller("UsersController", function($scope, $window, $rootScope,
 
 	$scope.reset();
 
-	//login
 	$scope.login = function(user){
 		UsersFactory.logIn(user, function(info){
 			if( info === "Error: There is no user with this email address." || info === "Error: Incorrect password."){
@@ -62,9 +73,11 @@ clickrModule.controller("UsersController", function($scope, $window, $rootScope,
 				$scope.errormsg = "";
 				$scope.successmsg = "";
 				console.log("login user email: ", user.email);
+				console.log("localStorageService: ", localStorageService.get("user"));
+				localStorageService.set("user", user.email);
 				
 				// Redirect to dashboard
-				$window.location.href = "#/";
+				$window.location.href = "/dashboard.html";
 			}
 		})
 	}
@@ -90,3 +103,109 @@ clickrModule.factory("UsersFactory", function($http){
 	// Return the factory so that everything inside of it is available to the CustomerController
 	return factory;
 });
+
+////// Quizzes Factory
+clickrModule.factory("quizFactory", function($http) {
+
+	var factory = {};
+
+	// get all quizzes from database
+	factory.getQuizzes = function (callback){
+		$http.get('/quizzes').success(function(output){
+			callback(output);
+		})
+	};
+
+	// add a quiz into the database
+	factory.addQuiz = function(info, callback) {
+		$http.post("add_quiz", info).success(function(output){
+			callback(output);
+		});
+	}
+
+	// remove a quiz from the database
+	factory.removeQuiz = function(info, callback) {
+		$http.post('/remove_quiz', info).success(function(output){
+			callback(output);
+		})
+	}
+
+	// get one quiz from the database with specific ID
+	factory.getOneQuiz = function(data, callback){
+		// console.log(data);
+		$http.post('/get_quiz/'+ data).success(function(data){
+			callback(data);
+		})
+	}
+
+	// update a quiz in the database with specific ID
+	factory.updateQuiz = function(data, info, callback) {
+		console.log(data);
+		console.log(info);
+		$http.post("/update_quiz/"+ data, info).success(function(output){
+			callback(output);
+		});
+	}
+
+	return factory;
+
+})
+
+////// Dashboard Controller
+clickrModule.controller("dashboardController", function($scope, quizFactory, $routeParams){
+
+	// call on factory to get all quizzes to be displayed on dashboard page
+	quizFactory.getQuizzes(function(data){
+		$scope.quizzes = data;
+	})
+
+	// call on factory to remove a quiz from the database
+	$scope.removeQuiz = function(quiz){
+		quizFactory.removeQuiz(quiz, function() {
+			quizFactory.getQuizzes(function(data){
+				$scope.quizzes = data;
+			})
+		})
+	}
+	
+	// call on factory to grab quiz with specific ID
+	quizFactory.getOneQuiz($routeParams.id, function(data){
+		$scope.quiz = data;
+	});
+
+	// call on factory to update quiz with specific ID
+	$scope.updateQuiz = function(){
+		quizFactory.updateQuiz($routeParams.id, $scope.updatedQuiz, function(){
+			$scope.updatedQuiz = {};
+			quizFactory.getOneQuiz($routeParams.id, function(data){
+				$scope.quiz = data;
+			});
+		})
+	}
+
+	// add a quiz from the Create Quiz page
+	$scope.addQuiz = function(){
+		makecode();
+		$scope.newQuiz["quizCode"] = quizCode;
+		console.log($scope.newQuiz);
+		quizFactory.addQuiz($scope.newQuiz, function(){
+			$scope.newQuiz = {};
+			quizFactory.getQuizzes(function(data){
+				$scope.quizzes = data;
+			});
+		})
+	}
+
+	var quizCode = "";
+
+	function makecode()
+	{
+	    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+	    for( var i=0; i < 5; i++ )
+	        quizCode += possible.charAt(Math.floor(Math.random() * possible.length));
+
+	    return quizCode;
+	}
+
+})
