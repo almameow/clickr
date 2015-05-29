@@ -132,16 +132,13 @@ clickrModule.factory("quizFactory", function($http) {
 
 	// get one quiz from the database with specific ID
 	factory.getOneQuiz = function(data, callback){
-		// console.log(data);
-		$http.post('/get_quiz/'+ data).success(function(data){
+		$http.post("/get_quiz/"+ data).success(function(data){
 			callback(data);
 		})
 	}
 
 	// update a quiz in the database with specific ID
 	factory.updateQuiz = function(data, info, callback) {
-		console.log(data);
-		console.log(info);
 		$http.post("/update_quiz/"+ data, info).success(function(output){
 			callback(output);
 		});
@@ -177,17 +174,13 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, $ro
 	$scope.updateQuiz = function(){
 		quizFactory.updateQuiz($routeParams.id, $scope.updatedQuiz, function(){
 			$scope.updatedQuiz = {};
-			quizFactory.getOneQuiz($routeParams.id, function(data){
-				$scope.quiz = data;
-			});
 		})
 	}
 
 	// add a quiz from the Create Quiz page
 	$scope.addQuiz = function(){
-		makecode();
+		createQuizCode();
 		$scope.newQuiz["quizCode"] = quizCode;
-		console.log($scope.newQuiz);
 		quizFactory.addQuiz($scope.newQuiz, function(){
 			$scope.newQuiz = {};
 			quizFactory.getQuizzes(function(data){
@@ -196,9 +189,10 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, $ro
 		})
 	}
 
+	// create a 5-character code every time a quiz is created
 	var quizCode = "";
 
-	function makecode()
+	function createQuizCode()
 	{
 	    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
