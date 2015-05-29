@@ -48,14 +48,13 @@ module.exports =(function() {
 					console.log("Quiz was not grabbed from the database.");
 				} else {
 					console.log(data);
-					res.json(data);
+					res.json(data[0]);
 				}
 			})
 		},
 
 		updateQuiz: function(req, res) {
-			console.log(req.params.id);
-			Quiz.update({title: req.body.title, question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD, correctAnswer: req.body.correctAnswer}, function(err, response) {
+			Quiz.update({_id: req.params.id}, {title: req.body.title, question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD, correctAnswer: req.body.correctAnswer}, function(err, response) {
 				if(err) {
 					console.log("Quiz was not updated in database.");
 				}

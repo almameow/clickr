@@ -164,18 +164,6 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, $ro
 			})
 		})
 	}
-	
-	// call on factory to grab quiz with specific ID
-	quizFactory.getOneQuiz($routeParams.id, function(data){
-		$scope.quiz = data;
-	});
-
-	// call on factory to update quiz with specific ID
-	$scope.updateQuiz = function(){
-		quizFactory.updateQuiz($routeParams.id, $scope.updatedQuiz, function(){
-			$scope.updatedQuiz = {};
-		})
-	}
 
 	// add a quiz from the Create Quiz page
 	$scope.addQuiz = function(){
@@ -202,4 +190,19 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, $ro
 	    return quizCode;
 	}
 
+})
+
+////// Quizzes Controller
+clickrModule.controller("quizController", function($scope, quizFactory, $routeParams){
+	// call on factory to grab quiz with specific ID
+	quizFactory.getOneQuiz($routeParams.id, function(data){
+		$scope.quiz = data;
+	});
+
+	// call on factory to update quiz with specific ID
+	$scope.updateQuiz = function(){
+		quizFactory.updateQuiz($routeParams.id, $scope.updatedQuiz, function(){
+			$scope.updatedQuiz = {};
+		})
+	}
 })
