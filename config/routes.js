@@ -14,6 +14,11 @@ module.exports = function(app){
 		users.login(request, response);
 	})
 
+	// Get current user's info
+	app.get('/get_user/:id', function(req, res){
+		users.getUser(req, res);
+	})
+
 	// Get all user's quizzes
 	app.get('/quizzes', function(req, res){
 		quizzes.show(req, res);

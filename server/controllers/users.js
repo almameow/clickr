@@ -61,6 +61,14 @@ module.exports = (function(){
 					res.send("Error: There is no user with this email address.");
 				}
 			})
+		},
+
+		// Get current user's info
+		getUser: function(req, res) {
+			console.log("Inside users server controller: ", req.params.id);
+			User.findOne({_id: req.params.id}, function(error, user) {
+				res.json(user);
+			})
 		}
 	}
 })();

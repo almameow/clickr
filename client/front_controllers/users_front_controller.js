@@ -1,5 +1,6 @@
-////// Users Controller
+// Users Controller
 clickrModule.controller("UsersController", function($scope, $window, $location, localStorageService, UsersFactory){
+	//used for reset button
 	$scope.master = {};
 
 	// Reset registration form
@@ -44,8 +45,6 @@ clickrModule.controller("UsersController", function($scope, $window, $location, 
 				console.log("output from controller: ", info);
 				
 				// Redirect to dashboard
-				//This is not the right way to do this.....not tracking which user is logged in!
-				//$window.location.href = "#/dashboard";
 				$location.path("/home/" + info._id);
 			}
 		})
