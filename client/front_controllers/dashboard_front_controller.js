@@ -1,20 +1,9 @@
 ////// Dashboard Controller
-clickrModule.controller("dashboardController", function($scope, quizFactory, UsersFactory, $location, $routeParams){
-
-	//pull current user's id from url
-	var userID = $location.path();
-	var userIDarray = userID.split("/home/");
-	userID = userIDarray[1];
+clickrModule.controller("dashboardController", function($scope, quizFactory, UsersFactory, $location, $routeParams, localStorageService){
 
 	// call on factory to get all quizzes to be displayed on dashboard page
-	quizFactory.getQuizzes(function(data){
+	quizFactory.getQuizzes(localStorageService.get('userid'), function(data){
 		$scope.quizzes = data;
-	})
-
-	//call on User factory to get user's info based on user's ID
-	UsersFactory.getOneUser(userID, function(data) {
-		console.log("Inside dashboard Controller, user first name: ", data.fname);
-		$scope.username = data.fname;
 	})
 
 	// call on factory to remove a quiz from the database
@@ -29,12 +18,10 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, Use
 	// add a quiz from the Create Quiz page
 	$scope.addQuiz = function(){
 		createQuizCode();
+		$scope.newQuiz["userID"] = localStorageService.get('userid');
 		$scope.newQuiz["quizCode"] = quizCode;
 		quizFactory.addQuiz($scope.newQuiz, function(){
 			$scope.newQuiz = {};
-			quizFactory.getQuizzes(function(data){
-				$scope.quizzes = data;
-			});
 		})
 	}
 
@@ -46,6 +33,7 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, Use
 
 	    for( var i=0; i < 5; i++ )
 	        quizCode += possible.charAt(Math.floor(Math.random() * possible.length));
+	    	//to add: if quizCode exists, recall createQuizCode()
 
 	    return quizCode;
 	}

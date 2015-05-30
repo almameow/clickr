@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row" ng-controller="currentUserController">
 	<div class="two columns">
 		<h3 class="clickr"><span class="optionAtext">c</span><span class="optionBtext">l</span><span class="optionCtext">i</span><span class="optionDtext">c</span><span class="optionAtext">k</span><span class="optionBtext">r</span></h3>
 	</div>
 	<div class="three columns offset-by-seven columns header_right">
-		<a href="#/home">My Account</a> &nbsp; 
+		<a href="#/home/{{userid}}">{{username}}'s Account</a> &nbsp; 
 		<a href="#/">Logout</a>
 	</div>
 </div>

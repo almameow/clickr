@@ -4,8 +4,8 @@ var Quiz = mongoose.model('Quiz');
 module.exports =(function() {
 	return {
 		show: function(req, res) {
-			//right now, pulling ALL quizzes, regardless of user
-			Quiz.find({}, function(err, results){
+			// Return all quizzes created by specified user
+			Quiz.find({userID: req.params.id}, function(err, results){
 				if(err)
 				{
 					console.log('Quizzes did not load.');
@@ -19,7 +19,7 @@ module.exports =(function() {
 		},
 
 		add: function(req, res) {
-			var new_quiz = new Quiz({title: req.body.title, question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD, correctAnswer: req.body.correctAnswer, quizCode: req.body.quizCode});
+			var new_quiz = new Quiz({userID: req.body.userID, title: req.body.title, question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD, correctAnswer: req.body.correctAnswer, quizCode: req.body.quizCode});
 			new_quiz.save(function(err, response) {
 				if(err) {
 					console.log('Quiz was not saved in database.');

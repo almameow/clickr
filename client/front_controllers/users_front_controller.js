@@ -1,5 +1,7 @@
 // Users Controller
 clickrModule.controller("UsersController", function($scope, $window, $location, localStorageService, UsersFactory){
+	$scope.currentUserID = ""
+
 	//used for reset button
 	$scope.master = {};
 
@@ -42,7 +44,10 @@ clickrModule.controller("UsersController", function($scope, $window, $location, 
 			else{
 				$scope.errormsg = "";
 				$scope.successmsg = "";
-				console.log("output from controller: ", info);
+
+				// Set localStorageService userid variable to current user's id
+				localStorageService.set('userid', info._id);
+				$scope.currentUserID = localStorageService.get('userid');
 				
 				// Redirect to dashboard
 				$location.path("/home/" + info._id);

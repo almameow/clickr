@@ -12,9 +12,7 @@ clickrModule.factory("UsersFactory", function($http){
 
 	// get current user from the database with specific ID
 	factory.getOneUser = function(data, callback){
-		console.log("User id from Factory:", data);
 		$http.get('/get_user/' + data).success(function(output){
-			console.log("User pulled, inside factory: ", output);
 			callback(output);
 		})
 	}
