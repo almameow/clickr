@@ -5,13 +5,13 @@ clickrModule.controller("quizController", function($scope, $routeParams, quizFac
 		$scope.quiz = data;
 	});
 
-	// call on factory to update quiz with specific ID
+	// call on factory to update quiz with specific ID (ID pulled from url)
 	$scope.updateQuiz = function(){
 		quizFactory.updateQuiz($routeParams.id, $scope.updatedQuiz, function(){
 			$scope.updatedQuiz = {};
-			quizFactory.getOneQuiz($routeParams.id, function(data){
-				$scope.quiz = data;
-			});
+			// quizFactory.getOneQuiz($routeParams.id, function(data){
+			// 	$scope.quiz = data;
+			// });
 		})
 	}
 })

@@ -55,15 +55,43 @@ module.exports =(function() {
 		},
 
 		updateQuiz: function(req, res) {
-			Quiz.update({_id: req.params.id}, {title: req.body.title, question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD, correctAnswer: req.body.correctAnswer}, function(err, response) {
-				if(err) {
-					console.log("Quiz was not updated in database.");
-				}
-				else {
-					console.log("Quiz updated successfully!");
-					res.json(response);
-				}
-			})
+			//Check each input value, if not null, update
+			if(req.body.title != null){
+				Quiz.update({_id: req.params.id}, {title: req.body.title}, function(err, response) {
+					//if err else res.json here
+				})
+			}
+			if(req.body.question != null){
+				Quiz.update({_id: req.params.id}, {question: req.body.question}, function(err, response) {
+					//if err else res.json here
+				})
+			}
+			if(req.body.answerA != null){
+				Quiz.update({_id: req.params.id}, {answerA: req.body.answerA}, function(err, response) {
+					//if err else res.json here
+				})
+			}
+			if(req.body.answerB != null){
+				Quiz.update({_id: req.params.id}, {answerB: req.body.answerB}, function(err, response) {
+					//if err else res.json here
+				})
+			}
+			if(req.body.answerC != null){
+				Quiz.update({_id: req.params.id}, {answerC: req.body.answerC}, function(err, response) {
+					//if err else res.json here
+				})
+			}
+			if(req.body.answerD != null){
+				Quiz.update({_id: req.params.id}, {answerD: req.body.answerD}, function(err, response) {
+					//if err else res.json here
+				})
+			}
+			if(eq.body.correctAnswer != null){
+				Quiz.update({_id: req.params.id}, {correctAnswer: req.body.correctAnswer}, function(err, response) {
+					//if err else res.json here
+				})
+			}
+			res.send("Successfully updated");
 		}
 
 	}

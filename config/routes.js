@@ -21,7 +21,6 @@ module.exports = function(app){
 
 	// Get all current user's quizzes
 	app.get('/quizzes/:id', function(req, res){
-		console.log("Inside quizzes route:", req);
 		quizzes.show(req, res);
 	})
 

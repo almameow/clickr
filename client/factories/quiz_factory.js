@@ -36,8 +36,8 @@ clickrModule.factory("quizFactory", function($http) {
 
 	// update a quiz in the database with specific ID
 	factory.updateQuiz = function(data, info, callback) {
-		console.log(data);
-		console.log(info);
+		console.log("From factory, Quiz ID: ", data);
+		console.log("From factory, Updated info: ", info);
 		$http.post("/update_quiz/"+ data, info).success(function(output){
 			callback(output);
 		});
