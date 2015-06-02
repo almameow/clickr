@@ -30,23 +30,22 @@ var io = require('socket.io').listen(server);
 
 var mongoose = require('mongoose');
 var Quiz = mongoose.model('Quiz');
+var correctAnswer = "";
+var quizQuestion = "";
 
 io.sockets.on('connection', function(socket) {
 
 	// when app user submits code
 	socket.on("submitButtonPressed", function(data) {
-<<<<<<< HEAD
-
-		console.log(data);
-
-=======
 		console.log("Code from app: ", data);
 		// Check if code exists in db
->>>>>>> 205937fb51972611e01ac8a1fa7781c93b737f93
 		Quiz.findOne({quizCode: data}, function(error, response){ 
 			if(response){ // quiz exists
 				console.log("Load quiz with code " + data);
 				console.log("Quiz data found: ", response);
+				correctAnswer = response.correctAnswer.toUpperCase();
+				quizQuestion = response.question;
+				io.emit("correctAnswerIs", correctAnswer);
 				socket.emit("displayQuiz", data);
 			}
 			else{
@@ -79,9 +78,7 @@ io.sockets.on('connection', function(socket) {
 	})
 
 	socket.on("startButton", function() {
-		
-
-		io.emit("start"); //full broadcast
+		io.emit("start", quizQuestion); //full broadcast
 	})
 
 	socket.on("timeIsUp", function(data) {

@@ -61,7 +61,8 @@ class SecondViewController: UIViewController {
         }
         
         socket.on("start") { data, ack in
-            println("Inside here")
+            self.questionLabel.text = data![0] as? String
+            println("Question is: \(self.questionLabel.text)")
             for button in self.choiceButtons {
                 println("buttons were enabled")
                 button.enabled = true

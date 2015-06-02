@@ -1,10 +1,17 @@
-$(document).ready(function (){ 
-    var socket = io.connect();
-    
+$(document).ready(function(){ 
+	var socket = io.connect();
+   
+	console.log("Inside Document.ready");
+
 	var seconds;
 	var temp;
 	var clickOnce = true;
-	var correctAnswer = "D"
+	var correctAnswer = ""
+
+	socket.on("correctAnswerIs", function(data){
+		correctAnswer = data;
+		console.log("Inside sockets.js answer: ", correctAnswer);
+	})
 
 	// timer
 	function countdown() {
@@ -31,26 +38,25 @@ $(document).ready(function (){
 		}
 	}
 
-	$(".startButton").click(function() {
-		console.log("here")
-		countdown(); // start the timer
+	$(document).on("click", ".startQuizButton", function(){
+		countdown();
 		socket.emit("startButton");
-	})
+	});
 
 	//show results of all users on page
 	//show correct answer
-	socket.on("finalScores", function(data) {
-		clickOnce = false  
-		console.log("Final Scores: ", data);
-		var sum = 0;
-		sum += data.A;
-		sum += data.B;
-		sum += data.C;
-		sum += data.D;
-		console.log("Sum: " , sum)
-		$(".answerA").html(Math.floor((data.A/sum)*100) + "% chose A");
-		$(".answerB").html(Math.floor((data.B/sum)*100) + "% chose B");
-		$(".answerC").html(Math.floor((data.C/sum)*100) + "% chose C");
-		$(".answerD").html(Math.floor((data.D/sum)*100) + "% chose D");
-	})
+	// socket.on("finalScores", function(data) {
+	// 	clickOnce = false  
+	// 	console.log("Final Scores: ", data);
+	// 	var sum = 0;
+	// 	sum += data.A;
+	// 	sum += data.B;
+	// 	sum += data.C;
+	// 	sum += data.D;
+	// 	console.log("Sum: " , sum)
+	// 	$(".answerA").html(Math.floor((data.A/sum)*100) + "% chose A");
+	// 	$(".answerB").html(Math.floor((data.B/sum)*100) + "% chose B");
+	// 	$(".answerC").html(Math.floor((data.C/sum)*100) + "% chose C");
+	// 	$(".answerD").html(Math.floor((data.D/sum)*100) + "% chose D");
+	// })
 })
