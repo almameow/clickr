@@ -9,7 +9,7 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, Use
 	// call on factory to remove a quiz from the database
 	$scope.removeQuiz = function(quiz){
 		quizFactory.removeQuiz(quiz, function() {
-			quizFactory.getQuizzes(function(data){
+			quizFactory.getQuizzes(localStorageService.get('userid'), function(data){
 				$scope.quizzes = data;
 			})
 		})
@@ -20,9 +20,10 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, Use
 		createQuizCode();
 		$scope.newQuiz["userID"] = localStorageService.get('userid');
 		$scope.newQuiz["quizCode"] = quizCode;
-		quizFactory.addQuiz($scope.newQuiz, function(){
-			$scope.newQuiz = {};
-		})
+		quizFactory.addQuiz($scope.newQuiz);
+
+		// Redirect to dashboard
+		$location.path("/home/" + localStorageService.get('userid'));
 	}
 
 	var quizCode = "";

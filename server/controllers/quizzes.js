@@ -37,6 +37,7 @@ module.exports =(function() {
 					console.log('Quiz was not deleted.');
 				}
 				else {
+					console.log("Quiz was successfully deleted.");
 					res.json(response);
 				}
 			})

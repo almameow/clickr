@@ -5,10 +5,6 @@ clickrModule.factory("quizFactory", function($http) {
 
 	// get all quizzes from database
 	factory.getQuizzes = function(info, callback){
-		console.log("Quiz Factory: ", info);
-		// $http.get('/quizzes', info).success(function(output){
-		// 	callback(output);
-		// })
 		$http.get('/quizzes/' + info).success(function(output){
 			callback(output);
 		})

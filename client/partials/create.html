@@ -11,7 +11,7 @@
 <div class="row" ng-controller="dashboardController">
 	<h5>Create New Quiz</h5>
 	<div class="twelve columns">
-		<form>
+		<form >
 			<div class="row">
 				<div class="three columns">
 					<label for="title">Title</label>
@@ -86,11 +86,10 @@
 					</fieldset>
 				</div>
 			</div>
-		</form>
 
-		<div class="row" ng-controller="currentUserController">
-			<a href=""><button class="button" id="add_question">Add another question</button></a>
-			<a href="#/home/{{userid}}" ng-click="addQuiz()"><button class="button-primary">Save</button></a>
-		</div>
+			<div class="row" ng-controller="currentUserController">
+				<input type="submit" value="Save" class="button-primary" ng-click="addQuiz()">
+			</div>
+		</form>
 	</div>
 </div>
