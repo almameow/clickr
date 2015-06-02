@@ -33,14 +33,20 @@ var Quiz = mongoose.model('Quiz');
 
 io.sockets.on('connection', function(socket) {
 
-	// when user presses submit button, 
+	// when app user submits code
 	socket.on("submitButtonPressed", function(data) {
+<<<<<<< HEAD
 
 		console.log(data);
 
+=======
+		console.log("Code from app: ", data);
+		// Check if code exists in db
+>>>>>>> 205937fb51972611e01ac8a1fa7781c93b737f93
 		Quiz.findOne({quizCode: data}, function(error, response){ 
 			if(response){ // quiz exists
 				console.log("Load quiz with code " + data);
+				console.log("Quiz data found: ", response);
 				socket.emit("displayQuiz", data);
 			}
 			else{

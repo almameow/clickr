@@ -10,14 +10,15 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
-    let socket = SocketIOClient(socketURL: "192.168.15.236:8000")
+    let socket = SocketIOClient(socketURL: "192.168.15.103:8000")
 
     @IBOutlet weak var quizCodeTextField: UITextField!
     @IBOutlet weak var noQuizLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     
     @IBAction func submitButtonPressed(sender: UIButton) {
-
+        println("Inside submit button")
+        
         socket.emit("submitButtonPressed", quizCodeTextField.text)
         
         // display error message when quiz code does not exist
@@ -26,7 +27,7 @@ class FirstViewController: UIViewController {
             println("quiz doesn't exist")
         }
         
-        // display quiz after its code was entered
+        // display quiz a1esl2fter its code was entered
         socket.on("displayQuiz") { data, ack in
             // display quiz view with quizCode
             self.noQuizLabel.hidden = true
