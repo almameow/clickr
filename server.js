@@ -22,6 +22,85 @@ require("./config/routes.js")(app);
 // Set up a static file server that points to the "client" directory
 app.use(express.static(path.join(__dirname, "./client")));
 
-app.listen(8000, function(){
+var server = app.listen(8000, function(){
 	console.log("listening on port 8000");
+})
+
+var io = require('socket.io').listen(server);
+
+var mongoose = require('mongoose');
+var Quiz = mongoose.model('Quiz');
+
+io.sockets.on('connection', function(socket) {
+
+	// when user presses submit button, 
+	socket.on("submitButtonPressed", function(data) {
+
+		Quiz.findOne({quizCode: data}, function(error, response){ 
+			if(response){ // quiz exists
+				console.log("Load quiz with code " + data);
+				socket.emit("displayQuiz", data);
+			}
+			else{
+				console.log("No quiz with the code you entered exists.");
+				socket.emit("noQuizMessage");
+			}
+		})
+	})
+
+	//when user presses a button, increase counter
+	socket.on("buttonPressed", function(data) {
+		if (data == "1") {
+			counterA++;
+			results.A += counterA;
+		} else if (data == "2") {
+			counterB++;
+			results.B += counterB;
+		} else if (data == "3") {
+			counterC++;
+			results.C += counterC;
+		} else if (data == "4") {
+			counterD++;
+			results.D += counterD;
+		}
+		console.log("counterA:", counterA);
+		console.log("counterB:", counterB);
+		console.log("counterC:", counterC);
+		console.log("counterD:", counterD);
+		console.log(results);
+	})
+
+	socket.on("startButton", function() {
+		
+
+		io.emit("start"); //full broadcast
+	})
+
+	socket.on("timeIsUp", function(data) {
+		var answer = 0;
+
+		if(data == "A") {
+			answer = 1
+		} else if (data == "B") {
+			answer = 2
+		} else if (data == "C") {
+			answer = 3
+		} else if (data == "D") {
+			answer = 4
+		}
+		console.log("Correct answer is: ", answer);
+		socket.emit("finalScores", results); //pass final scores to index.ejs
+		io.emit("timesUp", answer); //tell user their result
+		//when start button is pressed, reset variable counts
+		counterA = 0
+		counterB = 0
+		counterC = 0
+		counterD = 0
+		results = {A: 0, B: 0, C: 0, D: 0}
+	})
+
+	socket.on("nextPage", function() {
+		console.log("inside nextPage");
+		io.emit("onNextPage");
+	})
 })

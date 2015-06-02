@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3CF2B75B-0F69-4103-9977-8535A2214953</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>01C4019DAB2F13C7FB458F088D0A991884C46F1A</key>
+		<string>https://github.com/nuclearace/Socket.IO-Client-Swift.git</string>
+		<key>B527E5EB6C561411097E9CC9094E9FC012AB7AF1</key>
+		<string>https://github.com/almameow/clickr</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>clickrApp/clickrApp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>01C4019DAB2F13C7FB458F088D0A991884C46F1A</key>
+		<string>../../../../Socket.IO-Client-Swift</string>
+		<key>B527E5EB6C561411097E9CC9094E9FC012AB7AF1</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/almameow/clickr</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B527E5EB6C561411097E9CC9094E9FC012AB7AF1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B527E5EB6C561411097E9CC9094E9FC012AB7AF1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>clickr</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>01C4019DAB2F13C7FB458F088D0A991884C46F1A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Socket.IO-Client-Swift</string>
+		</dict>
+	</array>
+</dict>
+</plist>
