@@ -6,10 +6,19 @@ clickrModule.controller("currentUserController", function($scope, UsersFactory, 
 
 	//call on User factory to get user's info based on user's ID
 	UsersFactory.getOneUser($scope.userid, function(data) {
-		console.log("Inside getOneUser");
 		localStorageService.set('username', data.fname);
 		$scope.username = localStorageService.get('username');
-		console.log("username: ", $scope.username);
 	});
+
+	$scope.logout = function(){
+		//set loggedin to false
+		localStorageService.set("loggedin", "false");
+
+		//set userid to empty string
+		localStorageService.set("userid", "");
+
+		//redirect to main page
+		$location.path("#/");
+	}
 
 })

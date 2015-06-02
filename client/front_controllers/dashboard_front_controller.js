@@ -1,10 +1,16 @@
 ////// Dashboard Controller
 clickrModule.controller("dashboardController", function($scope, quizFactory, UsersFactory, $location, $routeParams, localStorageService){
 
-	// call on factory to get all quizzes to be displayed on dashboard page
-	quizFactory.getQuizzes(localStorageService.get('userid'), function(data){
-		$scope.quizzes = data;
-	})
+	// If user is logged in
+	if(localStorageService.get('loggedin') == "true" && localStorageService.get('userid') != ""){
+		// call on factory to get all quizzes to be displayed on dashboard page
+		quizFactory.getQuizzes(localStorageService.get('userid'), function(data){
+			$scope.quizzes = data;
+		});
+	} else {
+		$location.path("#/");
+	}
+	
 
 	// call on factory to remove a quiz from the database
 	$scope.removeQuiz = function(quiz){

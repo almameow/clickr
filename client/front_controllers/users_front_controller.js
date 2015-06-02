@@ -48,6 +48,9 @@ clickrModule.controller("UsersController", function($scope, $window, $location, 
 				// Set localStorageService userid variable to current user's id
 				localStorageService.set('userid', info._id);
 				$scope.currentUserID = localStorageService.get('userid');
+
+				// Set localStorageService loggedin variable to true
+				localStorageService.set("loggedin", "true");
 				
 				// Redirect to dashboard
 				$location.path("/home/" + info._id);
