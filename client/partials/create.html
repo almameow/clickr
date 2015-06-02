@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row" ng-controller="currentUserController">
 	<div class="two columns">
 		<h3 class="clickr"><span class="optionAtext">c</span><span class="optionBtext">l</span><span class="optionCtext">i</span><span class="optionDtext">c</span><span class="optionAtext">k</span><span class="optionBtext">r</span></h3>
 	</div>
-	<div class="three columns offset-by-seven columns header_right">
-		<a href="#/home">My Account</a> &nbsp; 
+	<div class="five columns offset-by-five columns header_right">
+		<a href="#/home/{{userid}}">{{username}}'s Account</a> &nbsp; 
 		<a href="#/">Logout</a>
 	</div>
 </div>
@@ -11,7 +11,7 @@
 <div class="row" ng-controller="dashboardController">
 	<h5>Create New Quiz</h5>
 	<div class="twelve columns">
-		<form>
+		<form >
 			<div class="row">
 				<div class="three columns">
 					<label for="title">Title</label>
@@ -86,11 +86,10 @@
 					</fieldset>
 				</div>
 			</div>
-		</form>
 
-		<div class="row">
-			<a href=""><button class="button" id="add_question">Add another question</button></a>
-			<a href="#/home" ng-click="addQuiz()"><button class="button-primary">Save</button></a>
-		</div>
+			<div class="row" ng-controller="currentUserController">
+				<input type="submit" value="Save" class="button-primary" ng-click="addQuiz()">
+			</div>
+		</form>
 	</div>
 </div>

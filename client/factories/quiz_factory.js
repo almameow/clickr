@@ -4,8 +4,8 @@ clickrModule.factory("quizFactory", function($http) {
 	var factory = {};
 
 	// get all quizzes from database
-	factory.getQuizzes = function (callback){
-		$http.get('/quizzes').success(function(output){
+	factory.getQuizzes = function(info, callback){
+		$http.get('/quizzes/' + info).success(function(output){
 			callback(output);
 		})
 	};
@@ -32,8 +32,8 @@ clickrModule.factory("quizFactory", function($http) {
 
 	// update a quiz in the database with specific ID
 	factory.updateQuiz = function(data, info, callback) {
-		console.log(data);
-		console.log(info);
+		console.log("From factory, Quiz ID: ", data);
+		console.log("From factory, Updated info: ", info);
 		$http.post("/update_quiz/"+ data, info).success(function(output){
 			callback(output);
 		});

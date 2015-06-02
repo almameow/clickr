@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row" ng-controller="currentUserController">
 	<div class="two columns">
 		<h3 class="clickr"><span class="optionAtext">c</span><span class="optionBtext">l</span><span class="optionCtext">i</span><span class="optionDtext">c</span><span class="optionAtext">k</span><span class="optionBtext">r</span></h3>
 	</div>
-	<div class="three columns offset-by-seven columns header_right">
-		<a href="#/home">My Account</a> &nbsp; 
+	<div class="five columns offset-by-five columns header_right">
+		<a href="#/home/{{userid}}">{{username}}'s Account</a> &nbsp; 
 		<a href="#/">Logout</a>
 	</div>
 </div>
@@ -27,13 +27,13 @@
 				</div>
 			</div>
 
-			<!-- Question 1 -->
+			<!-- Question -->
 			<div class="row">
 				<div class="three columns">
 					<label for="question1">Question One</label>
 				</div>
 				<div class="five columns">
-					<input type="text" name="question1" id="question1" placeholder="{{quiz.question}}" class="u-full-width" ng-model="updatedQuiz.question">
+					<input type="text" name="question1" id="question1" placeholder="{{quiz.question}}" ng-value="{{quiz.question}}" class="u-full-width" ng-model="updatedQuiz.question">
 				</div>
 			</div>
 			<div class="row">
@@ -94,84 +94,10 @@
 				</div>
 			</div>
 
-<!-- 			<div class="row">
-				<div class="five columns offset-by-four columns">
-					&nbsp;
-				</div>
-			</div> -->
-
-			<!-- Question 2 -->
-<!-- 			<div class="row">
-				<div class="three columns">
-					<label for="question1">Question Two</label>
-				</div>
-				<div class="five columns">
-					<input type="text" name="question1" id="question2" placeholder="Example question 2 here?" class="u-full-width">
-				</div>
-			</div>
-			<div class="row">
-				<div class="three columns">
-					<label for="answerA">Answer A</label>
-				</div>
-				<div class="five columns">
-					<input type="text" name="answerA" id="answerA" placeholder="Example answer A here" class="u-full-width">
-				</div>
-			</div>
-			<div class="row">
-				<div class="three columns">
-					<label for="answerB">Answer B</label>
-				</div>
-				<div class="five columns">
-					<input type="text" name="answerB" id="answerB" placeholder="Example answer B here" class="u-full-width">
-				</div>
-			</div>
-			<div class="row">
-				<div class="three columns">
-					<label for="answerC">Answer C</label>
-				</div>
-				<div class="five columns">
-					<input type="text" name="title" id="answerC" placeholder="Example answer C here" class="u-full-width">
-				</div>
-			</div>
-			<div class="row">
-				<div class="three columns">
-					<label for="answerD">Answer D</label>
-				</div>
-				<div class="five columns">
-					<input type="text" name="title" id="answerD" placeholder="Example answer D here" class="u-full-width">
-				</div>
-			</div>
-			<div class="row">
-				<div class="three columns">
-					<label for="">Correct Answer</label>
-				</div>
-				<div class="five columns">
-					<fieldset>
-						<label for="radioA" class="inline">
-							<input type="radio" name="correctAndswer2" id="radioA" value="a">
-							<span>A</span>
-						</label>
-						<label for="radioB" class="inline">
-							<input type="radio" name="correctAndswer2" id="radioB" value="b" checked>
-							<span>B</span>
-						</label>
-						<label for="radioC" class="inline">
-							<input type="radio" name="correctAndswer2" id="radioC" value="c">
-							<span>C</span>
-						</label>
-						<label for="radioD" class="inline">
-							<input type="radio" name="correctAndswer2" id="radioD" value="d">
-							<span>D</span>
-						</label>
-					</fieldset>
-				</div>
-			</div>
-		</form> -->
-
-		<div class="row">
+		<div class="row" ng-controller="currentUserController">
 			<div class="header_right">
-				<a href="#/home"><button>Cancel</button></a>
-				<a href="#/home" ng-click="updateQuiz()"><button class="button-primary">Save</button></a>
+				<a href="#/home/{{userid}}"><button>Cancel</button></a>
+				<input type="submit" ng-click="updateQuiz()" value="Save" class="button-primary">
 			</div>
 		</div>
 	</div>

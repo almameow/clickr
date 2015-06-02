@@ -10,6 +10,13 @@ clickrModule.factory("UsersFactory", function($http){
 		})
 	};
 
+	// get current user from the database with specific ID
+	factory.getOneUser = function(data, callback){
+		$http.get('/get_user/' + data).success(function(output){
+			callback(output);
+		})
+	}
+
 	factory.logIn = function(info, callback){
 		$http.post("/login", info).success(function(output){
 			callback(output);

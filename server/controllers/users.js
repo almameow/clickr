@@ -14,8 +14,9 @@ module.exports = (function(){
 			
 			// If user with same email already exists in db, do not add to db
 			User.findOne({email: req.body.email}, function(error, response){ 
-				console.log("FineOne reqult: ", response);
-				if(response){ //user exists
+				console.log("FindOne result: ", response);
+				// If user already exists
+				if(response){ 
 					console.log("User already exists in db");
 					res.send("Error: A user with this email exists.");
 				}
@@ -39,14 +40,16 @@ module.exports = (function(){
 			})
 		},
 
+		// Log in user
 		login: function(req, res){
 			User.findOne({email: req.body.email}, function(error, response){ 
-				// if user exists
+				// If user exists
 				if(response){
 					// If user has matching password
 					if( req.body.password === response.password)
 					{
-						res.send("Passwords match!");
+						console.log("Logged-in user's info: ", response);
+						res.json(response);
 					}
 					else{
 						console.log("Incorrect password");
@@ -57,6 +60,14 @@ module.exports = (function(){
 					console.log("User does not exist in db");
 					res.send("Error: There is no user with this email address.");
 				}
+			})
+		},
+
+		// Get current user's info
+		getUser: function(req, res) {
+			console.log("Inside users server controller: ", req.params.id);
+			User.findOne({_id: req.params.id}, function(error, user) {
+				res.json(user);
 			})
 		}
 	}
