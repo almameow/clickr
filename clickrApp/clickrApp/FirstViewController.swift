@@ -19,7 +19,6 @@ class FirstViewController: UIViewController {
     @IBAction func submitButtonPressed(sender: UIButton) {
 
         socket.emit("submitButtonPressed", quizCodeTextField.text)
-        quizCodeTextField.text = ""
         
         // display error message when quiz code does not exist
         socket.on("noQuizMessage") { data, ack in
@@ -35,13 +34,8 @@ class FirstViewController: UIViewController {
             println("quiz will display")
         }
         
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "DisplsyQuiz" {
-            let navigationController = segue.destinationViewController as! UINavigationController
-            let controller = navigationController.topViewController as! SecondViewController
-        }
+        quizCodeTextField.text = ""
+        
     }
     
     override func viewDidLoad() {

@@ -36,6 +36,8 @@ io.sockets.on('connection', function(socket) {
 	// when user presses submit button, 
 	socket.on("submitButtonPressed", function(data) {
 
+		console.log(data);
+
 		Quiz.findOne({quizCode: data}, function(error, response){ 
 			if(response){ // quiz exists
 				console.log("Load quiz with code " + data);

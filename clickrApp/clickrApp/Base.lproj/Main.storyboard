@@ -161,8 +161,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9wp-20-Qam">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="w8C-5s-Zu9"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="0QO-hV-g2m"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="w8C-5s-Zu9">
+                            <connections>
+                                <action selector="cancelBarButtonPressed:" destination="5kq-mZ-4bb" id="cjG-31-QL4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
