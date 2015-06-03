@@ -31,18 +31,17 @@ var io = require('socket.io').listen(server);
 var mongoose = require('mongoose');
 var Quiz = mongoose.model('Quiz');
 
+var counterA = 0
+var counterB = 0
+var counterC = 0
+var counterD = 0
+var results = {A: counterA, B: counterB, C: counterC, D: counterD}
+
 io.sockets.on('connection', function(socket) {
 
 	// when app user submits code
 	socket.on("submitButtonPressed", function(data) {
-<<<<<<< HEAD
-
-		console.log(data);
-
-=======
-		console.log("Code from app: ", data);
 		// Check if code exists in db
->>>>>>> 205937fb51972611e01ac8a1fa7781c93b737f93
 		Quiz.findOne({quizCode: data}, function(error, response){ 
 			if(response){ // quiz exists
 				console.log("Load quiz with code " + data);

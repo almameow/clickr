@@ -10,14 +10,13 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
-    let socket = SocketIOClient(socketURL: "192.168.15.103:8000")
+    let socket = SocketIOClient(socketURL: "192.168.15.236:8000")
 
     @IBOutlet weak var quizCodeTextField: UITextField!
     @IBOutlet weak var noQuizLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     
     @IBAction func submitButtonPressed(sender: UIButton) {
-        println("Inside submit button")
         
         socket.emit("submitButtonPressed", quizCodeTextField.text)
         
