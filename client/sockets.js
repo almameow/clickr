@@ -1,8 +1,5 @@
 $(document).ready(function (){ 
     var socket = io.connect();
-
-$(document).ready(function(){ 
-	var socket = io.connect();
    
 	console.log("Inside Document.ready");
 
