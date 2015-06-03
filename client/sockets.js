@@ -1,12 +1,20 @@
 $(document).ready(function (){ 
-	console.log("hello");
-
     var socket = io.connect();
-    
+
+$(document).ready(function(){ 
+	var socket = io.connect();
+   
+	console.log("Inside Document.ready");
+
 	var seconds;
 	var temp;
 	var clickOnce = true;
-	var correctAnswer = "D"
+	var correctAnswer = ""
+
+	socket.on("correctAnswerIs", function(data){
+		correctAnswer = data;
+		console.log("Inside sockets.js answer: ", correctAnswer);
+	})
 
 	// timer
 	function countdown() {
@@ -27,17 +35,16 @@ $(document).ready(function (){
 
 			if ( seconds == 0 ) {
 				//emit to server
-				socket.emit("timeIsUp", correctAnswer)
+				socket.emit("timeIsUp", correctAnswer);
 				$(".realAnswer").html(correctAnswer + " is the correct answer!");
 			}
 		}
 	}
 
-	$(".startButton").click(function() {
-		console.log("here")
-		countdown(); // start the timer
+	$(document).on("click", ".startQuizButton", function(){
+		countdown();
 		socket.emit("startButton");
-	})
+	});
 
 	//show results of all users on page
 	//show correct answer

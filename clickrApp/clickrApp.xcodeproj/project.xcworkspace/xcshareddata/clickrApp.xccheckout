@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B527E5EB6C561411097E9CC9094E9FC012AB7AF1</key>
-		<string>https://github.com/almameow/clickr</string>
+		<string>https://github.com/almameow/clickr.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>clickrApp/clickrApp.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/almameow/clickr</string>
+	<string>https://github.com/almameow/clickr.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>B527E5EB6C561411097E9CC9094E9FC012AB7AF1</string>
 			<key>IDESourceControlWCCName</key>
-			<string>clickr</string>
+			<string>clicker</string>
 		</dict>
 	</array>
 </dict>

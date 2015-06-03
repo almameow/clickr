@@ -18,10 +18,10 @@ class SecondViewController: UIViewController {
     var choice = 0
     
     @IBAction func answerButtonPressed(sender: UIButton) {
-        choice = sender.tag
+//        choice = sender.tag
         sender.layer.borderWidth = 2.5
         sender.layer.borderColor = UIColor.whiteColor().CGColor
-        socket.emit("buttonPressed", sender.tag)
+//        socket.emit("buttonPressed", sender.tag)
         for button in choiceButtons {
             button.enabled = false
         }
@@ -61,7 +61,8 @@ class SecondViewController: UIViewController {
         }
         
         socket.on("start") { data, ack in
-            println("Inside here")
+            self.questionLabel.text = data![0] as? String
+            println("Question is: \(self.questionLabel.text)")
             for button in self.choiceButtons {
                 println("buttons were enabled")
                 button.enabled = true
