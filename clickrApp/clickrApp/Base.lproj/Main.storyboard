@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--First View Controller-->
@@ -128,43 +128,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What is your favorite programming language?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfD-KH-WbU">
-                                <rect key="frame" x="58" y="128" width="298" height="58"/>
-=======
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is your favorite programming language?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfD-KH-WbU">
-                                <rect key="frame" x="58" y="438" width="298" height="58"/>
->>>>>>> e2767163ffb48985525fdfb1957d75a6478559a2
+                                <rect key="frame" x="58" y="128" width="298" height="58"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-<<<<<<< HEAD
-                        <constraints>
-                            <constraint firstItem="CfD-KH-WbU" firstAttribute="top" secondItem="b48-Yx-j58" secondAttribute="bottom" constant="64" id="9af-3L-OFh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fgf-df-qEk" secondAttribute="trailing" constant="67" id="Ewn-L7-0gK"/>
-                            <constraint firstItem="rvV-5k-hSw" firstAttribute="leading" secondItem="Vox-B6-mga" secondAttribute="leadingMargin" constant="68" id="Fhx-0D-3UN"/>
-                            <constraint firstAttribute="centerY" secondItem="D2r-sg-qhi" secondAttribute="centerY" constant="48" id="Koh-I4-hUd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CfD-KH-WbU" secondAttribute="trailing" constant="42" id="PHa-cv-F7g"/>
-                            <constraint firstAttribute="centerY" secondItem="h4l-mt-NpO" secondAttribute="centerY" constant="142" id="UIl-oJ-jgP"/>
-                            <constraint firstAttribute="centerX" secondItem="4zy-ay-ydR" secondAttribute="centerX" constant="-0.5" id="YTo-lH-VO4"/>
-                            <constraint firstItem="CfD-KH-WbU" firstAttribute="leading" secondItem="Vox-B6-mga" secondAttribute="leadingMargin" constant="42" id="Zao-AD-gyp"/>
-                            <constraint firstItem="Fgf-df-qEk" firstAttribute="leading" secondItem="Vox-B6-mga" secondAttribute="leadingMargin" constant="68" id="byJ-HF-ga3"/>
-                            <constraint firstItem="4zy-ay-ydR" firstAttribute="leading" secondItem="Vox-B6-mga" secondAttribute="leadingMargin" constant="117" id="ff3-Y3-2uF"/>
-                            <constraint firstAttribute="centerY" secondItem="rvV-5k-hSw" secondAttribute="centerY" constant="95" id="lUl-70-sAL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="h4l-mt-NpO" secondAttribute="trailing" constant="67" id="ovW-aN-dwm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="D2r-sg-qhi" secondAttribute="trailing" constant="67" id="qNp-4f-dZM"/>
-                            <constraint firstItem="D2r-sg-qhi" firstAttribute="leading" secondItem="Vox-B6-mga" secondAttribute="leadingMargin" constant="68" id="rjF-CE-eRS"/>
-                            <constraint firstItem="h4l-mt-NpO" firstAttribute="leading" secondItem="Vox-B6-mga" secondAttribute="leadingMargin" constant="68" id="uTM-7H-nN8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rvV-5k-hSw" secondAttribute="trailing" constant="67" id="unD-V5-gHI"/>
-                            <constraint firstAttribute="centerY" secondItem="4zy-ay-ydR" secondAttribute="centerY" constant="-51.5" id="vPX-mm-Z4L"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4zy-ay-ydR" secondAttribute="trailing" constant="116" id="xFo-Mt-b9Z"/>
-                            <constraint firstAttribute="centerY" secondItem="Fgf-df-qEk" secondAttribute="centerY" id="xGv-cA-3VZ"/>
-                        </constraints>
-=======
->>>>>>> e2767163ffb48985525fdfb1957d75a6478559a2
                     </view>
                     <navigationItem key="navigationItem" id="9wp-20-Qam">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="w8C-5s-Zu9">
