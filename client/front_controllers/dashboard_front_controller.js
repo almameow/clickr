@@ -1,6 +1,9 @@
 ////// Dashboard Controller
 clickrModule.controller("dashboardController", function($scope, quizFactory, UsersFactory, $location, $routeParams, localStorageService){
 
+	var questionCounter = 1;
+	$scope.currentQuestion = "" ;
+
 	// If user is logged in
 	if(localStorageService.get('loggedin') == "true" && localStorageService.get('userid') != ""){
 		// call on factory to get all quizzes to be displayed on dashboard page
@@ -43,6 +46,15 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, Use
 	    	//to add: if quizCode exists, recall createQuizCode()
 
 	    return quizCode;
+	}
+
+	$scope.newQuestion = function() {
+		++questionCounter;
+		localStorageService.set("currentQuestion", questionCounter);
+		$scope.currentQuestion = localStorageService.get("currentQuestion");
+		console.log($scope.currentQuestion);
+
+		$location.path("/create/" + questionCounter);
 	}
 
 })

@@ -78,7 +78,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-mt-NpO">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-mt-NpO">
                                 <rect key="frame" x="84" y="211" width="247" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.3490374946" blue="0.45236460179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="A">
@@ -89,7 +89,7 @@
                                     <action selector="answerButtonPressed:" destination="5kq-mZ-4bb" eventType="touchUpInside" id="9Wr-S6-7op"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvV-5k-hSw">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvV-5k-hSw">
                                 <rect key="frame" x="84" y="258" width="247" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.73511174950000002" blue="0.26456877899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="B">
@@ -100,7 +100,7 @@
                                     <action selector="answerButtonPressed:" destination="5kq-mZ-4bb" eventType="touchUpInside" id="Hpx-N6-o9C"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2r-sg-qhi">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2r-sg-qhi">
                                 <rect key="frame" x="84" y="305" width="247" height="30"/>
                                 <color key="backgroundColor" red="0.47303358439999998" green="0.85814837489999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="C">
@@ -111,7 +111,7 @@
                                     <action selector="answerButtonPressed:" destination="5kq-mZ-4bb" eventType="touchUpInside" id="gtF-dQ-Thv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgf-df-qEk">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgf-df-qEk">
                                 <rect key="frame" x="84" y="353" width="247" height="30"/>
                                 <color key="backgroundColor" red="0.28527278420000002" green="1" blue="0.67441906900000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="D">

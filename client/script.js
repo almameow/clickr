@@ -16,10 +16,13 @@ clickrModule.config(function ($routeProvider){
 		.when("/create", {
 			templateUrl: "partials/create.html"
 		})
-		.when("/home/:id", {
-			templateUrl: "partials/dashboard.html"
+		.when("/create/:id", {
+			templateUrl: "partials/newquestion.html"
 		})
 		.when("/home", {
+			templateUrl: "partials/dashboard.html"
+		})
+		.when("/home/:id", {
 			templateUrl: "partials/dashboard.html"
 		})
 		.when("/quiz/:id", {

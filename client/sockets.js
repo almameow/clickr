@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 			if ( seconds == 0 ) {
 				//emit to server
-				socket.emit("timeIsUp", correctAnswer)
+				socket.emit("timeIsUp", correctAnswer);
 				$(".realAnswer").html(correctAnswer + " is the correct answer!");
 			}
 		}
@@ -45,18 +45,18 @@ $(document).ready(function(){
 
 	//show results of all users on page
 	//show correct answer
-	// socket.on("finalScores", function(data) {
-	// 	clickOnce = false  
-	// 	console.log("Final Scores: ", data);
-	// 	var sum = 0;
-	// 	sum += data.A;
-	// 	sum += data.B;
-	// 	sum += data.C;
-	// 	sum += data.D;
-	// 	console.log("Sum: " , sum)
-	// 	$(".answerA").html(Math.floor((data.A/sum)*100) + "% chose A");
-	// 	$(".answerB").html(Math.floor((data.B/sum)*100) + "% chose B");
-	// 	$(".answerC").html(Math.floor((data.C/sum)*100) + "% chose C");
-	// 	$(".answerD").html(Math.floor((data.D/sum)*100) + "% chose D");
-	// })
+	socket.on("finalScores", function(data) {
+		clickOnce = false  
+		console.log("Final Scores: ", data);
+		var sum = 0;
+		sum += data.A;
+		sum += data.B;
+		sum += data.C;
+		sum += data.D;
+		console.log("Sum: " , sum)
+		$(".answerA").html(Math.floor((data.A/sum)*100) + "% chose A");
+		$(".answerB").html(Math.floor((data.B/sum)*100) + "% chose B");
+		$(".answerC").html(Math.floor((data.C/sum)*100) + "% chose C");
+		$(".answerD").html(Math.floor((data.D/sum)*100) + "% chose D");
+	})
 })

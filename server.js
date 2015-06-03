@@ -33,6 +33,12 @@ var Quiz = mongoose.model('Quiz');
 var correctAnswer = "";
 var quizQuestion = "";
 
+var counterA = 0;
+var counterB = 0;
+var counterC = 0;
+var counterD = 0;
+var results = {A: counterA, B: counterB, C: counterC, D: counterD};
+
 io.sockets.on('connection', function(socket) {
 
 	// when app user submits code
@@ -93,9 +99,10 @@ io.sockets.on('connection', function(socket) {
 		} else if (data == "D") {
 			answer = 4
 		}
-		console.log("Correct answer is: ", answer);
+		console.log("Correct answer is: ", correctAnswer);
 		socket.emit("finalScores", results); //pass final scores to index.ejs
 		io.emit("timesUp", answer); //tell user their result
+		
 		//when start button is pressed, reset variable counts
 		counterA = 0
 		counterB = 0

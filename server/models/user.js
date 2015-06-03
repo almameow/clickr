@@ -28,3 +28,7 @@ var QuizSchema = new mongoose.Schema({
 });
 
 mongoose.model('Quiz', QuizSchema);
+
+//questions collection will have quizid
+//quizid = localstorageid(quiz#) //saving quiz #
+//questionnumber = $route.params or counter //saving question #
