@@ -2,7 +2,6 @@
 clickrModule.controller("dashboardController", function($scope, quizFactory, UsersFactory, $location, $routeParams, localStorageService){
 
 	var questionCounter = 1;
-	$scope.currentQuestion = "" ;
 
 	// If user is logged in
 	if(localStorageService.get('loggedin') == "true" && localStorageService.get('userid') != ""){
@@ -49,11 +48,15 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, Use
 	}
 
 	$scope.newQuestion = function() {
-		++questionCounter;
-		localStorageService.set("currentQuestion", questionCounter);
-		$scope.currentQuestion = localStorageService.get("currentQuestion");
+		//Increase question counter
+		questionCounter++;
+		
+		//Set currentQuestion var to questionCounter value
+		$scope.currentQuestion = questionCounter;
+
 		console.log($scope.currentQuestion);
 
+		//redirect newquestion page
 		$location.path("/create/" + questionCounter);
 	}
 

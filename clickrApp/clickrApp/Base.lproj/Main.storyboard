@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--First View Controller-->
@@ -13,22 +13,20 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="9t0-G0-lKy">
-                                <rect key="frame" x="123" y="211" width="169" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="9t0-G0-lKy">
+                                <rect key="frame" x="216" y="247" width="169" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="169" id="Ad3-uc-0Kt"/>
+                                    <constraint firstAttribute="height" constant="30" id="stj-dn-sdJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Please enter quiz code:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-M6-0vl">
-                                <rect key="frame" x="92" y="167" width="230" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <color key="textColor" red="1" green="0.73511174950000002" blue="0.26456877899999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJ2-sJ-a3J">
-                                <rect key="frame" x="171" y="262" width="73" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJ2-sJ-a3J">
+                                <rect key="frame" x="264" y="285" width="73" height="30"/>
                                 <color key="backgroundColor" red="0.28527278420000002" green="1" blue="0.67441906900000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Submit">
@@ -39,22 +37,31 @@
                                     <action selector="submitButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="k0c-Ut-glZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="No quiz with the code you entered exists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHk-Ei-hsD">
-                                <rect key="frame" x="51" y="308" width="313" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No quiz with the code you entered exists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHk-Ei-hsD">
+                                <rect key="frame" x="144" y="323" width="313" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.3490374946" blue="0.45236460179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please enter quiz code:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-M6-0vl">
+                                <rect key="frame" x="185" y="218" width="230" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" red="1" green="0.73511174950000002" blue="0.26456877899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="9t0-G0-lKy" secondAttribute="centerX" constant="-0.5" id="JHj-VW-AV5"/>
-                            <constraint firstAttribute="centerX" secondItem="OJ2-sJ-a3J" secondAttribute="centerX" constant="-0.5" id="Yls-si-aWN"/>
-                            <constraint firstAttribute="centerX" secondItem="uHk-Ei-hsD" secondAttribute="centerX" constant="-0.5" id="gqB-vu-33p"/>
-                            <constraint firstAttribute="centerX" secondItem="Ytf-M6-0vl" secondAttribute="centerX" id="wRo-8K-obN"/>
+                            <constraint firstAttribute="centerX" secondItem="Ytf-M6-0vl" secondAttribute="centerX" id="Mfu-dm-Q9C"/>
+                            <constraint firstAttribute="centerY" secondItem="OJ2-sJ-a3J" secondAttribute="centerY" id="N7c-zg-CGH"/>
+                            <constraint firstItem="9t0-G0-lKy" firstAttribute="top" secondItem="Ytf-M6-0vl" secondAttribute="bottom" constant="8" symbolic="YES" id="TlX-tH-GmU"/>
+                            <constraint firstItem="uHk-Ei-hsD" firstAttribute="top" secondItem="OJ2-sJ-a3J" secondAttribute="bottom" constant="8" symbolic="YES" id="cmo-ot-8DW"/>
+                            <constraint firstAttribute="centerX" secondItem="OJ2-sJ-a3J" secondAttribute="centerX" id="dAe-DV-n6D"/>
+                            <constraint firstItem="OJ2-sJ-a3J" firstAttribute="top" secondItem="9t0-G0-lKy" secondAttribute="bottom" constant="8" symbolic="YES" id="f4t-hd-D7x"/>
+                            <constraint firstAttribute="centerX" secondItem="9t0-G0-lKy" secondAttribute="centerX" id="iwp-4W-K2J"/>
+                            <constraint firstAttribute="centerX" secondItem="uHk-Ei-hsD" secondAttribute="centerX" id="kh4-Eh-dkb"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="noQuizLabel" destination="uHk-Ei-hsD" id="Toq-fV-l63"/>
                         <outlet property="quizCodeTextField" destination="9t0-G0-lKy" id="BWZ-fR-a2s"/>
@@ -64,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="147" y="306"/>
+            <point key="canvasLocation" x="-97" y="238"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="W58-cA-Snb">
@@ -75,12 +82,16 @@
                         <viewControllerLayoutGuide type="bottom" id="ktm-Zo-pqp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Vox-B6-mga">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-mt-NpO">
-                                <rect key="frame" x="84" y="211" width="247" height="30"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-mt-NpO">
+                                <rect key="frame" x="177" y="228" width="247" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.3490374946" blue="0.45236460179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="U5i-px-M2q"/>
+                                    <constraint firstAttribute="width" constant="247" id="k8W-C8-2ME"/>
+                                </constraints>
                                 <state key="normal" title="A">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,9 +100,13 @@
                                     <action selector="answerButtonPressed:" destination="5kq-mZ-4bb" eventType="touchUpInside" id="9Wr-S6-7op"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvV-5k-hSw">
-                                <rect key="frame" x="84" y="258" width="247" height="30"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvV-5k-hSw">
+                                <rect key="frame" x="177" y="266" width="247" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.73511174950000002" blue="0.26456877899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="J8t-lo-cOh"/>
+                                    <constraint firstAttribute="width" constant="247" id="iba-Gq-FKV"/>
+                                </constraints>
                                 <state key="normal" title="B">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,9 +115,13 @@
                                     <action selector="answerButtonPressed:" destination="5kq-mZ-4bb" eventType="touchUpInside" id="Hpx-N6-o9C"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2r-sg-qhi">
-                                <rect key="frame" x="84" y="305" width="247" height="30"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2r-sg-qhi">
+                                <rect key="frame" x="177" y="304" width="247" height="30"/>
                                 <color key="backgroundColor" red="0.47303358439999998" green="0.85814837489999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="247" id="L09-hY-EV1"/>
+                                    <constraint firstAttribute="height" constant="30" id="S9o-TV-hC8"/>
+                                </constraints>
                                 <state key="normal" title="C">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,9 +130,13 @@
                                     <action selector="answerButtonPressed:" destination="5kq-mZ-4bb" eventType="touchUpInside" id="gtF-dQ-Thv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgf-df-qEk">
-                                <rect key="frame" x="84" y="353" width="247" height="30"/>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgf-df-qEk">
+                                <rect key="frame" x="177" y="342" width="247" height="30"/>
                                 <color key="backgroundColor" red="0.28527278420000002" green="1" blue="0.67441906900000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="247" id="APS-Ib-hAJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="RB0-5p-98H"/>
+                                </constraints>
                                 <state key="normal" title="D">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -122,20 +145,37 @@
                                     <action selector="answerButtonPressed:" destination="5kq-mZ-4bb" eventType="touchUpInside" id="WB0-6L-UKP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Correct!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zy-ay-ydR">
-                                <rect key="frame" x="133" y="409" width="149" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What is your favorite programming language?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfD-KH-WbU">
+                                <rect key="frame" x="151" y="72" width="298" height="58"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is your favorite programming language?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfD-KH-WbU">
-                                <rect key="frame" x="58" y="128" width="298" height="58"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Correct!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zy-ay-ydR">
+                                <rect key="frame" x="226" y="419" width="149" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="CfD-KH-WbU" secondAttribute="centerX" id="7ME-6U-q9y"/>
+                            <constraint firstAttribute="centerX" secondItem="D2r-sg-qhi" secondAttribute="centerX" id="Bew-Ad-ATq"/>
+                            <constraint firstAttribute="centerX" secondItem="rvV-5k-hSw" secondAttribute="centerX" id="C06-yr-jsi"/>
+                            <constraint firstItem="CfD-KH-WbU" firstAttribute="top" secondItem="b48-Yx-j58" secondAttribute="bottom" constant="8" symbolic="YES" id="CEr-Ed-tLZ"/>
+                            <constraint firstItem="D2r-sg-qhi" firstAttribute="top" secondItem="rvV-5k-hSw" secondAttribute="bottom" constant="8" symbolic="YES" id="GZk-le-3rf"/>
+                            <constraint firstItem="4zy-ay-ydR" firstAttribute="top" secondItem="Fgf-df-qEk" secondAttribute="bottom" constant="47" id="Klt-9x-HVh"/>
+                            <constraint firstItem="Fgf-df-qEk" firstAttribute="top" secondItem="D2r-sg-qhi" secondAttribute="bottom" constant="8" symbolic="YES" id="Nsc-O9-7cZ"/>
+                            <constraint firstItem="h4l-mt-NpO" firstAttribute="top" secondItem="CfD-KH-WbU" secondAttribute="bottom" constant="98" id="aOr-pf-vcf"/>
+                            <constraint firstItem="rvV-5k-hSw" firstAttribute="top" secondItem="h4l-mt-NpO" secondAttribute="bottom" constant="8" symbolic="YES" id="bnS-9m-85R"/>
+                            <constraint firstAttribute="centerX" secondItem="4zy-ay-ydR" secondAttribute="centerX" id="fef-v7-8S3"/>
+                            <constraint firstItem="rvV-5k-hSw" firstAttribute="top" secondItem="h4l-mt-NpO" secondAttribute="bottom" constant="8" symbolic="YES" id="fo0-QE-QEP"/>
+                            <constraint firstItem="Fgf-df-qEk" firstAttribute="top" secondItem="D2r-sg-qhi" secondAttribute="bottom" constant="8" symbolic="YES" id="k6c-x9-W0U"/>
+                            <constraint firstItem="D2r-sg-qhi" firstAttribute="top" secondItem="rvV-5k-hSw" secondAttribute="bottom" constant="8" symbolic="YES" id="le4-lW-0jn"/>
+                            <constraint firstAttribute="centerX" secondItem="h4l-mt-NpO" secondAttribute="centerX" id="q7l-Dx-jEO"/>
+                            <constraint firstAttribute="centerX" secondItem="Fgf-df-qEk" secondAttribute="centerX" id="rXA-pr-t9N"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9wp-20-Qam">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="w8C-5s-Zu9">
@@ -144,7 +184,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="questionLabel" destination="CfD-KH-WbU" id="mv6-np-SbS"/>
                         <outlet property="result" destination="4zy-ay-ydR" id="JcS-3K-bmz"/>
@@ -156,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lY5-yB-RWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1371" y="306"/>
+            <point key="canvasLocation" x="1271" y="238"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kvL-jb-0EW">
@@ -174,7 +213,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06F-9P-pIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="238"/>
+            <point key="canvasLocation" x="588" y="238"/>
         </scene>
     </scenes>
 </document>
