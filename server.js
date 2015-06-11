@@ -30,6 +30,8 @@ var io = require('socket.io').listen(server);
 
 var mongoose = require('mongoose');
 var Quiz = mongoose.model('Quiz');
+var Question = mongoose.model('Question');
+var allQuiz = "";
 var correctAnswer = "";
 var quizQuestion = "";
 
@@ -52,8 +54,19 @@ io.sockets.on('connection', function(socket) {
 		// Check if code exists in db
 		Quiz.findOne({quizCode: data}, function(error, response){ 
 			if(response){ // quiz exists
-				console.log("Load quiz with code " + data);
-				console.log("Quiz data found: ", response);
+				//Push Quiz question 1 into allQuiz
+				allQuiz = response;
+
+				Question.find({quizID: response._id}, function(err, data){
+					if(err)
+					{
+						console.log("Quiz was not grabbed from the database.");
+					} else {
+						allQuiz = data;
+						console.log("allQuiz:", allQuiz);
+					}
+				})
+				
 				correctAnswer = response.correctAnswer.toUpperCase();
 				quizQuestion = response.question;
 				io.emit("correctAnswerIs", correctAnswer);
@@ -90,6 +103,7 @@ io.sockets.on('connection', function(socket) {
 
 	socket.on("startButton", function() {
 		io.emit("start", quizQuestion); //full broadcast
+		console.log("quiz question: ", quizQuestion);
 	})
 
 	socket.on("timeIsUp", function(data) {
@@ -116,8 +130,12 @@ io.sockets.on('connection', function(socket) {
 		results = {A: 0, B: 0, C: 0, D: 0}
 	})
 
-	socket.on("nextPage", function() {
+	socket.on("nextQuestion", function() {
 		console.log("inside nextPage");
-		io.emit("onNextPage");
+		// io.emit("onNextQuestion");
+		quizQuestion = localStorageService.get("currentQuestion");
+		console.log("inside server question: ", quizQuestion);
+
 	})
+
 })

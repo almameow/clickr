@@ -1,12 +1,10 @@
 $(document).ready(function (){ 
     var socket = io.connect();
-   
-	console.log("Inside Document.ready");
 
 	var seconds;
 	var temp;
 	var clickOnce = true;
-	var correctAnswer = ""
+	var correctAnswer = "";
 
 	socket.on("correctAnswerIs", function(data){
 		correctAnswer = data;
@@ -52,6 +50,7 @@ $(document).ready(function (){
 		$(".answerD").html("");
 		$("#countdown").html(10);
 		clickOnce = true;
+		socket.emit("nextQuestion");
 	});
 
 	//show results of all users on page

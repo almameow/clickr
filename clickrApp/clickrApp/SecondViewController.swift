@@ -48,6 +48,7 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.questionLabel.hidden = true
         self.result.hidden = true
         
         socket.connect()
@@ -61,6 +62,8 @@ class SecondViewController: UIViewController {
         }
         
         socket.on("start") { data, ack in
+            println("quiz question: \(data)");
+            self.questionLabel.hidden = false
             self.questionLabel.text = data![0] as? String
             println("Question is: \(self.questionLabel.text)")
             for button in self.choiceButtons {
@@ -84,7 +87,7 @@ class SecondViewController: UIViewController {
         }
         
         //when second question is presented, reset the user's app
-        socket.on("onNextPage") { data, ack in
+        socket.on("onNextQuestion") { data, ack in
             //disable buttons and remove border of previously selected button
             for button in self.choiceButtons {
                 button.enabled = false

@@ -26,6 +26,8 @@ clickrModule.controller("quizController", function($scope, $routeParams, $locati
 			//Create local count variable to count how many times user has clicked "next question"
 			if(count < data.length-1){
 				$scope.quiz = data[count];
+				localStorageService.set("currentQuestion", data[count].question);
+				console.log("local storage question: ", localStorageService.get("currentQuestion"));
 				count++;
 			} else{
 				$scope.quiz = data[count];
