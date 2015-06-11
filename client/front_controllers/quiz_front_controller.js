@@ -14,4 +14,11 @@ clickrModule.controller("quizController", function($scope, $routeParams, $locati
 		// Redirect to dashboard
 		$location.path("/home/" + localStorageService.get("userid"));
 	}
+
+	$scope.getAllQuestions = function(){
+		quizFactory.getQuestions($routeParams.id, function(data){
+			$scope.quiz = data;
+			console.log("Inside front controller:", $scope.quiz);
+		});
+	}
 })

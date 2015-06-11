@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Quiz = mongoose.model('Quiz');
+var Question = mongoose.model('Question');
 
 module.exports =(function() {
 	return {
@@ -26,6 +27,21 @@ module.exports =(function() {
 				}
 				else {
 					console.log('Quiz was saved into database.');
+					console.log("Returning: ", response);
+					res.json(response);
+				}
+			})
+		},
+
+		addQuestion: function(req, res) {
+			var new_question = new Question({quizID: req.body.quizID, question: req.body.question, answerA: req.body.answerA, answerB: req.body.answerB, answerC: req.body.answerC, answerD: req.body.answerD, correctAnswer: req.body.correctAnswer,});
+			new_question.save(function(err, response) {
+				if(err) {
+					console.log('Question was not saved in database.');
+				}
+				else {
+					console.log('Question was saved into database.');
+					console.log("Returning: ", response);
 					res.json(response);
 				}
 			})
@@ -93,6 +109,19 @@ module.exports =(function() {
 				})
 			}
 			res.send("Successfully updated");
+		},
+
+		getQuestions: function(req, res){
+			console.log("Back controller req:", req.params.id);
+			Question.find({quizID: req.params.id}, function(err, data){
+				if(err)
+				{
+					console.log("Quiz was not grabbed from the database.");
+				} else {
+					console.log(data);
+					res.json(data);
+				}
+			})
 		}
 
 	}

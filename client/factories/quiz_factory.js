@@ -10,9 +10,23 @@ clickrModule.factory("quizFactory", function($http) {
 		})
 	};
 
+	factory.getQuestions = function(info, callback){
+		$http.get('/questions/' + info).success(function(output){
+			callback(output);
+		})
+	};
+
 	// add a quiz into the database
-	factory.addQuiz = function(info) {
-		$http.post("add_quiz", info).success();
+	factory.addQuiz = function(info, callback) {
+		$http.post("add_quiz", info).success(function(response){
+			callback(response);
+		});
+
+	}
+	factory.addQuestion = function(info, callback){
+		$http.post("add_question", info).success(function(response){
+			callback(response);
+		})
 	}
 
 	// remove a quiz from the database
@@ -38,6 +52,9 @@ clickrModule.factory("quizFactory", function($http) {
 			callback(output);
 		});
 	}
+
+	
+
 
 	return factory;
 

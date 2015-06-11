@@ -24,9 +24,19 @@ module.exports = function(app){
 		quizzes.show(req, res);
 	})
 
+	// Get all quiz's questions
+	app.get('/questions/:id', function(req, res){
+		quizzes.getQuestions(req, res);
+	})
+
 	// Add quiz
 	app.post('/add_quiz', function(req, res){
 		quizzes.add(req, res);
+	})
+
+	// Add question
+	app.post('/add_question', function(req, res){
+		quizzes.addQuestion(req, res);
 	})
 
 	// Remove quiz

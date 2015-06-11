@@ -28,10 +28,12 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, Use
 		createQuizCode();
 		$scope.newQuiz["userID"] = localStorageService.get('userid');
 		$scope.newQuiz["quizCode"] = quizCode;
-		quizFactory.addQuiz($scope.newQuiz);
-
+		quizFactory.addQuiz($scope.newQuiz, function(data){
+			//console.log("Data in front controller:", data._id);
+			localStorageService.set("currentQuiz", data._id);
+		});
 		// Redirect to dashboard
-		$location.path("/home/" + localStorageService.get('userid'));
+			$location.path("/home/" + localStorageService.get('userid'));
 	}
 
 	var quizCode = "";
@@ -47,17 +49,46 @@ clickrModule.controller("dashboardController", function($scope, quizFactory, Use
 	    return quizCode;
 	}
 
-	$scope.newQuestion = function() {
-		//Increase question counter
-		questionCounter++;
-		
-		//Set currentQuestion var to questionCounter value
-		$scope.currentQuestion = questionCounter;
+	// From create quiz page, save and load newquestion page
+	$scope.newQuizNewQuestion = function() {
+		createQuizCode();
+		$scope.newQuiz["userID"] = localStorageService.get('userid');
+		$scope.newQuiz["quizCode"] = quizCode;
+		quizFactory.addQuiz($scope.newQuiz, function(data){
+			//console.log("Data in front controller:", data._id);
+			localStorageService.set("currentQuiz", data._id);
+			// Redirect to new question page
+			$location.path("/create/" + localStorageService.get('currentQuiz'));
+		});
+	}	
 
-		console.log($scope.currentQuestion);
-
-		//redirect newquestion page
-		$location.path("/create/" + questionCounter);
+	// From newquestion page, save and clear form
+	$scope.addNewQuestion = function(form) {
+		// Save quizID to newQuiz
+		$scope.newQuestion["quizID"] = localStorageService.get("currentQuiz");
+		// console.log("new question data: ", $scope.newQuestion);
+		quizFactory.addQuestion($scope.newQuestion, function(data){
+			console.log("Returned from save: ", data);
+			$scope.newQuestion = {};
+		})
+		// Reset form
+			form.$setPristine();
+			form.$setUntouched();
 	}
+
+	// From newquestion page, save and return to dashboard
+	$scope.saveQuiz = function(){
+		// Save quizID to newQuiz
+		$scope.newQuestion["quizID"] = localStorageService.get("currentQuiz");
+		// console.log("new question data: ", $scope.newQuestion);
+		quizFactory.addQuestion($scope.newQuestion, function(data){
+			console.log("Returned from save: ", data);
+			// Reset localStorageService currentQuiz
+			localStorageService.set("currentQuiz", "");
+			// Redirect to dashboard
+			$location.path("/home/" + localStorageService.get('userid'));
+		});
+	}
+		
 
 })

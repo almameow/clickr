@@ -9,16 +9,19 @@
 </div>
 
 <div class="row" ng-controller="dashboardController">
-	<h5>Create New Quiz</h5>
+	<h5>Add New Question</h5>
 	<div class="twelve columns">
-		<form >
+		<form name="form" novalidate>
 
 			<div class="row">
 				<div class="three columns">
 					<label for="question1">Question {{currentQuestion}}</label>
 				</div>
 				<div class="five columns">
-					<input type="text" name="question1" id="question1" class="u-full-width" ng-model="newQuiz.question">
+					<input type="text" name="question1" id="question1" class="u-full-width" ng-model="newQuestion.question" name="question" required="">
+				</div>
+				<div ng-show="form.$submitted || form.pass.$touched">
+					<div ng-show="form.question.$error.required">Question is required</div>
 				</div>
 			</div>
 			<div class="row">
@@ -26,7 +29,10 @@
 					<label for="answerA">Answer A</label>
 				</div>
 				<div class="five columns">
-					<input type="text" name="answerA" id="answerA" class="u-full-width" ng-model="newQuiz.answerA">
+					<input type="text" name="answerA" id="answerA" class="u-full-width" ng-model="newQuestion.answerA" name="answerA" required="">
+				</div>
+				<div ng-show="form.$submitted || form.pass.$touched">
+					<div ng-show="form.answerA.$error.required">Answer A is required</div>
 				</div>
 			</div>
 			<div class="row">
@@ -34,7 +40,10 @@
 					<label for="answerB">Answer B</label>
 				</div>
 				<div class="five columns">
-					<input type="text" name="answerB" id="answerB" class="u-full-width" ng-model="newQuiz.answerB">
+					<input type="text" name="answerB" id="answerB" class="u-full-width" ng-model="newQuestion.answerB" name="answerB" required="">
+				</div>
+				<div ng-show="form.$submitted || form.pass.$touched">
+					<div ng-show="form.answerB.$error.required">Answer B is required</div>
 				</div>
 			</div>
 			<div class="row">
@@ -42,7 +51,10 @@
 					<label for="answerC">Answer C</label>
 				</div>
 				<div class="five columns">
-					<input type="text" name="title" id="answerC" class="u-full-width" ng-model="newQuiz.answerC">
+					<input type="text" name="title" id="answerC" class="u-full-width" ng-model="newQuestion.answerC" name="answerC" required="">
+				</div>
+				<div ng-show="form.$submitted || form.pass.$touched">
+					<div ng-show="form.answerC.$error.required">Answer C is required</div>
 				</div>
 			</div>
 			<div class="row">
@@ -50,7 +62,10 @@
 					<label for="answerD">Answer D</label>
 				</div>
 				<div class="five columns">
-					<input type="text" name="title" id="answerD" class="u-full-width" ng-model="newQuiz.answerD">
+					<input type="text" name="title" id="answerD" class="u-full-width" ng-model="newQuestion.answerD" name="answerD" required="">
+				</div>
+				<div ng-show="form.$submitted || form.pass.$touched">
+					<div ng-show="form.answerD.$error.required">Answer D is required</div>
 				</div>
 			</div>
 			<div class="row">
@@ -58,33 +73,37 @@
 					<label for="">Correct Answer</label>
 				</div>
 				<div class="five columns">
-					<fieldset>
+					<fieldset name="correctAnswer" required="">
 						<label for="radioA" class="inline">
-							<input type="radio" name="correctAnswer" ng-model="newQuiz.correctAnswer" id="radioA" value="a">
+							<input type="radio" name="correctAnswer" ng-model="newQuestion.correctAnswer" id="radioA" value="a">
 							<span>A</span>
 						</label>
 						<label for="radioB" class="inline">
-							<input type="radio" name="correctAnswer" ng-model="newQuiz.correctAnswer" id="radioB" value="b">
+							<input type="radio" name="correctAnswer" ng-model="newQuestion.correctAnswer" id="radioB" value="b">
 							<span>B</span>
 						</label>
 						<label for="radioC" class="inline">
-							<input type="radio" name="correctAnswer" ng-model="newQuiz.correctAnswer" id="radioC" value="c">
+							<input type="radio" name="correctAnswer" ng-model="newQuestion.correctAnswer" id="radioC" value="c">
 							<span>C</span>
 						</label>
 						<label for="radioD" class="inline">
-							<input type="radio" name="correctAnswer" ng-model="newQuiz.correctAnswer" id="radioD" value="d">
+							<input type="radio" name="correctAnswer" ng-model="newQuestion.correctAnswer" id="radioD" value="d">
 							<span>D</span>
 						</label>
 					</fieldset>
+				</div>
+				<div ng-show="form.$submitted || form.pass.$touched">
+					<div ng-show="form.correctAnswer.$error.required">Correct Answer is required</div>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="six columns">
-					<input type="submit" value="Save" class="button-primary" ng-click="addQuiz()">
+					<!-- Need new function for save -->
+					<input type="submit" value="Save" class="button-primary" ng-click="saveQuiz()">
 				</div>
 				<div class="six columns">
-					<input type="submit" value="Add Another Question" class="button" ng-click="newQuestion()">
+					<input type="submit" value="Add Another Question" class="button"  ng-disabled="form.$invalid" ng-click="addNewQuestion(form)">
 				</div>
 			</div>
 		</form>

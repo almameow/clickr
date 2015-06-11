@@ -38,7 +38,6 @@ var QuestionSchema = new mongoose.Schema({
 	answerC: String,
 	answerD: String,
 	correctAnswer: String,
-	quizCode: String,
 	created: {type: Date, default: Date.now }
 })
 
