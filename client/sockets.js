@@ -43,6 +43,17 @@ $(document).ready(function (){
 		socket.emit("startButton");
 	});
 
+	// click next button to reset desktop and app
+	$(document).on("click", ".nextButton", function(){
+		$(".realAnswer").html("");
+		$(".answerA").html("");
+		$(".answerB").html("");
+		$(".answerC").html("");
+		$(".answerD").html("");
+		$("#countdown").html(10);
+		clickOnce = true;
+	});
+
 	//show results of all users on page
 	//show correct answer
 	socket.on("finalScores", function(data) {
