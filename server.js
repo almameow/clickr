@@ -31,6 +31,7 @@ var io = require('socket.io').listen(server);
 var mongoose = require('mongoose');
 var Quiz = mongoose.model('Quiz');
 var Question = mongoose.model('Question');
+
 var correctAnswer = "";
 var quizQuestion = "";
 var nextCorrectAnswer = "";
@@ -62,7 +63,8 @@ io.sockets.on('connection', function(socket) {
 						//Save values for first quiz question
 						correctAnswer = response.correctAnswer.toUpperCase();
 						quizQuestion = response.question;
-					
+						io.emit("correctAnswerIs", correctAnswer);
+
 						// If quiz has more than one question
 						if(data.length > 0){ 
 							console.log("Inside here!");
@@ -70,7 +72,6 @@ io.sockets.on('connection', function(socket) {
 						}
 					}
 				})
-				io.emit("correctAnswerIs", correctAnswer);
 				socket.emit("displayQuiz", data);
 			}
 			else{

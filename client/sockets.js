@@ -34,8 +34,8 @@ $(document).ready(function (){
 
 			if ( seconds == 0 ) {
 				//emit to server
-				socket.emit("timeIsUp", correctAnswer);
-				$(".realAnswer").html(correctAnswer + " is the correct answer!");
+				socket.emit("timeIsUp", correctAnswer.toUpperCase());
+				$(".realAnswer").html(correctAnswer.toUpperCase() + " is the correct answer!");
 			}
 		}
 	}
@@ -66,6 +66,7 @@ $(document).ready(function (){
 
 	function increaseCount(){
 		correctAnswer = nextCorrectAnswer;
+		console.log("Current correct answer inside sockets.js:", correctAnswer);
 
 		questionCounter++;
 		if(questionCounter < remainingQuestions.length){
