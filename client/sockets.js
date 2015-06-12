@@ -1,10 +1,11 @@
 $(document).ready(function (){ 
     var socket = io.connect();
-
+    var counter = 0;
 	var seconds;
 	var temp;
 	var clickOnce = true;
 	var correctAnswer = "";
+	var remainingQuestions = "";
 
 	socket.on("correctAnswerIs", function(data){
 		correctAnswer = data;
@@ -50,8 +51,16 @@ $(document).ready(function (){
 		$(".answerD").html("");
 		$("#countdown").html(10);
 		clickOnce = true;
+
+		//emit to app to reset
 		socket.emit("nextQuestion");
 	});
+
+	socket.on("otherQuestions", function(data){
+		console.log("Inside otherQuestions listener")
+		remainingQuestions = data;
+		console.log("remainingQuestions", remainingQuestions)
+	})
 
 	//show results of all users on page
 	//show correct answer
@@ -69,4 +78,6 @@ $(document).ready(function (){
 		$(".answerC").html(Math.floor((data.C/sum)*100) + "% chose C");
 		$(".answerD").html(Math.floor((data.D/sum)*100) + "% chose D");
 	})
+
+
 })

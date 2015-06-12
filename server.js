@@ -31,7 +31,6 @@ var io = require('socket.io').listen(server);
 var mongoose = require('mongoose');
 var Quiz = mongoose.model('Quiz');
 var Question = mongoose.model('Question');
-var allQuiz = "";
 var correctAnswer = "";
 var quizQuestion = "";
 
@@ -41,12 +40,6 @@ var counterC = 0;
 var counterD = 0;
 var results = {A: counterA, B: counterB, C: counterC, D: counterD};
 
-var counterA = 0
-var counterB = 0
-var counterC = 0
-var counterD = 0
-var results = {A: counterA, B: counterB, C: counterC, D: counterD}
-
 io.sockets.on('connection', function(socket) {
 
 	// when app user submits code
@@ -54,21 +47,24 @@ io.sockets.on('connection', function(socket) {
 		// Check if code exists in db
 		Quiz.findOne({quizCode: data}, function(error, response){ 
 			if(response){ // quiz exists
-				//Push Quiz question 1 into allQuiz
-				allQuiz = response;
 
 				Question.find({quizID: response._id}, function(err, data){
 					if(err)
 					{
 						console.log("Quiz was not grabbed from the database.");
 					} else {
-						allQuiz = data;
-						console.log("allQuiz:", allQuiz);
+						console.log("other questions:", data);
+						//Save values for first quiz question
+						correctAnswer = response.correctAnswer.toUpperCase();
+						quizQuestion = response.question;
+					
+						// If quiz has more than one question
+						if(data.length > 0){ 
+							console.log("Inside here!");
+							io.emit("otherQuestions", data);
+						}
 					}
 				})
-				
-				correctAnswer = response.correctAnswer.toUpperCase();
-				quizQuestion = response.question;
 				io.emit("correctAnswerIs", correctAnswer);
 				socket.emit("displayQuiz", data);
 			}
@@ -132,8 +128,7 @@ io.sockets.on('connection', function(socket) {
 
 	socket.on("nextQuestion", function() {
 		console.log("inside nextPage");
-		// io.emit("onNextQuestion");
-		quizQuestion = localStorageService.get("currentQuestion");
+		io.emit("onNextQuestion");
 		console.log("inside server question: ", quizQuestion);
 
 	})
