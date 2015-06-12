@@ -7,6 +7,9 @@ $(document).ready(function (){
 	var correctAnswer = "";
 	var remainingQuestions = "";
 
+	var questionCounter = -1;
+	var nextCorrectAnswer = "";
+
 	socket.on("correctAnswerIs", function(data){
 		correctAnswer = data;
 		console.log("Inside sockets.js answer: ", correctAnswer);
@@ -52,14 +55,35 @@ $(document).ready(function (){
 		$("#countdown").html(10);
 		clickOnce = true;
 
+		//emit to server to increase count
+		socket.emit("increaseCount");
+		//increase count in here
+		increaseCount();
+
 		//emit to app to reset
 		socket.emit("nextQuestion");
 	});
 
+	function increaseCount(){
+		correctAnswer = nextCorrectAnswer;
+
+		questionCounter++;
+		if(questionCounter < remainingQuestions.length){
+			nextCorrectAnswer = remainingQuestions[questionCounter].correctAnswer
+		}
+	}
+
+	// Handle tracking answers and displaying on APPS
+	// Pass questions to server.js to track/display on DESKTOP
 	socket.on("otherQuestions", function(data){
-		console.log("Inside otherQuestions listener")
+		
+		// When quiz is first loaded, set questionCounter = 0
+		questionCounter = 0;
+
 		remainingQuestions = data;
-		console.log("remainingQuestions", remainingQuestions)
+		nextCorrectAnswer = remainingQuestions[questionCounter].correctAnswer;
+
+		socket.emit("remainingQuestions", remainingQuestions);
 	})
 
 	//show results of all users on page

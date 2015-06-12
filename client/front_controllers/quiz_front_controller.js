@@ -27,7 +27,9 @@ clickrModule.controller("quizController", function($scope, $routeParams, $locati
 			if(count < data.length-1){
 				$scope.quiz = data[count];
 				localStorageService.set("currentQuestion", data[count].question);
-				console.log("local storage question: ", localStorageService.get("currentQuestion"));
+
+				console.log("Data is:", data);
+
 				count++;
 			} else{
 				$scope.quiz = data[count];

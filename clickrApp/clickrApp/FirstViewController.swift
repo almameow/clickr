@@ -10,7 +10,7 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
-    let socket = SocketIOClient(socketURL: "192.168.1.93:8000")
+    let socket = SocketIOClient(socketURL: "192.168.1.126:8000")
 
     @IBOutlet weak var quizCodeTextField: UITextField!
     @IBOutlet weak var noQuizLabel: UILabel!
