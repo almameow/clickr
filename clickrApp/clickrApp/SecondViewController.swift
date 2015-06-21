@@ -9,7 +9,7 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-    let socket = SocketIOClient(socketURL: "192.168.1.126:8000")
+    let socket = SocketIOClient(socketURL: "192.168.1.66:8000")
     
     @IBOutlet weak var result: UILabel!
     @IBOutlet var choiceButtons: [UIButton]!
