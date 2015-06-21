@@ -15,13 +15,13 @@
 
 			<div class="row">
 				<div class="three columns">
-					<label for="question1">Question {{currentQuestion}}</label>
+					<label for="question">Question</label>
 				</div>
 				<div class="five columns">
-					<input type="text" name="question1" id="question1" class="u-full-width" ng-model="newQuestion.question" name="question" required="">
+					<input type="text" name="question" id="question" class="u-full-width" ng-model="newQuestion.question" required="">
 				</div>
-				<div ng-show="form.$submitted || form.pass.$touched">
-					<div ng-show="form.question.$error.required">Question is required</div>
+				<div class="four columns" ng-show="form.$submitted || form.question.$touched">
+					<div class="optionAtext" ng-show="form.question.$error.required">Question is required</div>
 				</div>
 			</div>
 			<div class="row">
@@ -31,8 +31,8 @@
 				<div class="five columns">
 					<input type="text" name="answerA" id="answerA" class="u-full-width" ng-model="newQuestion.answerA" name="answerA" required="">
 				</div>
-				<div ng-show="form.$submitted || form.pass.$touched">
-					<div ng-show="form.answerA.$error.required">Answer A is required</div>
+				<div class="four columns" ng-show="form.$submitted || form.answerA.$touched">
+					<div class="optionAtext" ng-show="form.answerA.$error.required">Answer A is required</div>
 				</div>
 			</div>
 			<div class="row">
@@ -42,8 +42,8 @@
 				<div class="five columns">
 					<input type="text" name="answerB" id="answerB" class="u-full-width" ng-model="newQuestion.answerB" name="answerB" required="">
 				</div>
-				<div ng-show="form.$submitted || form.pass.$touched">
-					<div ng-show="form.answerB.$error.required">Answer B is required</div>
+				<div class="four columns" ng-show="form.$submitted || form.answerB.$touched">
+					<div class="optionAtext" ng-show="form.answerB.$error.required">Answer B is required</div>
 				</div>
 			</div>
 			<div class="row">
@@ -51,10 +51,10 @@
 					<label for="answerC">Answer C</label>
 				</div>
 				<div class="five columns">
-					<input type="text" name="title" id="answerC" class="u-full-width" ng-model="newQuestion.answerC" name="answerC" required="">
+					<input type="text" id="answerC" class="u-full-width" ng-model="newQuestion.answerC" name="answerC" required="">
 				</div>
-				<div ng-show="form.$submitted || form.pass.$touched">
-					<div ng-show="form.answerC.$error.required">Answer C is required</div>
+				<div class="four columns" ng-show="form.$submitted || form.answerC.$touched">
+					<div class="optionAtext" ng-show="form.answerC.$error.required">Answer C is required</div>
 				</div>
 			</div>
 			<div class="row">
@@ -62,10 +62,10 @@
 					<label for="answerD">Answer D</label>
 				</div>
 				<div class="five columns">
-					<input type="text" name="title" id="answerD" class="u-full-width" ng-model="newQuestion.answerD" name="answerD" required="">
+					<input type="text" id="answerD" class="u-full-width" ng-model="newQuestion.answerD" name="answerD" required="">
 				</div>
-				<div ng-show="form.$submitted || form.pass.$touched">
-					<div ng-show="form.answerD.$error.required">Answer D is required</div>
+				<div class="four columns" ng-show="form.$submitted || form.answerD.$touched">
+					<div class="optionAtext" ng-show="form.answerD.$error.required">Answer D is required</div>
 				</div>
 			</div>
 			<div class="row">
@@ -92,8 +92,8 @@
 						</label>
 					</fieldset>
 				</div>
-				<div ng-show="form.$submitted || form.pass.$touched">
-					<div ng-show="form.correctAnswer.$error.required">Correct Answer is required</div>
+				<div class="four columns" ng-show="form.$submitted || form.correctAnswer.$touched">
+					<div class="optionAtext" ng-show="form.correctAnswer.$error.required">Correct Answer is required</div>
 				</div>
 			</div>
 
