@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E01739DD1B3798C500B9F3FF /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E01739DC1B3798C500B9F3FF /* logo.png */; };
 		E07E9ABC1B1E589100A9857B /* SocketAckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E9AAF1B1E589100A9857B /* SocketAckManager.swift */; };
 		E07E9ABD1B1E589100A9857B /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E9AB01B1E589100A9857B /* SocketAnyEvent.swift */; };
 		E07E9ABE1B1E589100A9857B /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E9AB11B1E589100A9857B /* SocketEngine.swift */; };
@@ -20,8 +21,6 @@
 		E07E9AC61B1E589100A9857B /* SocketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E9AB91B1E589100A9857B /* SocketTypes.swift */; };
 		E07E9AC71B1E589100A9857B /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E9ABA1B1E589100A9857B /* SwiftRegex.swift */; };
 		E07E9AC81B1E589100A9857B /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E9ABB1B1E589100A9857B /* WebSocket.swift */; };
-		E0F0A5AC1B3666B000D823AA /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E0F0A5AB1B3666B000D823AA /* logo.jpg */; };
-		E0F0A5B01B36676500D823AA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E0F0A5AF1B36676500D823AA /* logo.png */; };
 		F106F8B61B19233E0091C930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F106F8B51B19233E0091C930 /* AppDelegate.swift */; };
 		F106F8B81B19233E0091C930 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F106F8B71B19233E0091C930 /* FirstViewController.swift */; };
 		F106F8BB1B19233E0091C930 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F106F8B91B19233E0091C930 /* Main.storyboard */; };
@@ -42,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E01739DC1B3798C500B9F3FF /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../client/images/logo.png; sourceTree = "<group>"; };
 		E07E9AAF1B1E589100A9857B /* SocketAckManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketAckManager.swift; path = "Socket.IO-Client-Swift-master/SocketIOClientSwift/SocketAckManager.swift"; sourceTree = SOURCE_ROOT; };
 		E07E9AB01B1E589100A9857B /* SocketAnyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketAnyEvent.swift; path = "Socket.IO-Client-Swift-master/SocketIOClientSwift/SocketAnyEvent.swift"; sourceTree = SOURCE_ROOT; };
 		E07E9AB11B1E589100A9857B /* SocketEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketEngine.swift; path = "Socket.IO-Client-Swift-master/SocketIOClientSwift/SocketEngine.swift"; sourceTree = SOURCE_ROOT; };
@@ -55,8 +55,6 @@
 		E07E9AB91B1E589100A9857B /* SocketTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketTypes.swift; path = "Socket.IO-Client-Swift-master/SocketIOClientSwift/SocketTypes.swift"; sourceTree = SOURCE_ROOT; };
 		E07E9ABA1B1E589100A9857B /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftRegex.swift; path = "Socket.IO-Client-Swift-master/SocketIOClientSwift/SwiftRegex.swift"; sourceTree = SOURCE_ROOT; };
 		E07E9ABB1B1E589100A9857B /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = "Socket.IO-Client-Swift-master/SocketIOClientSwift/WebSocket.swift"; sourceTree = SOURCE_ROOT; };
-		E0F0A5AB1B3666B000D823AA /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = ../../../../logo.jpg; sourceTree = "<group>"; };
-		E0F0A5AF1B36676500D823AA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../logo.png; sourceTree = "<group>"; };
 		F106F8B01B19233E0091C930 /* clickrApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clickrApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F106F8B41B19233E0091C930 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F106F8B51B19233E0091C930 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,8 +122,7 @@
 		F106F8B31B19233E0091C930 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E0F0A5AF1B36676500D823AA /* logo.png */,
-				E0F0A5AB1B3666B000D823AA /* logo.jpg */,
+				E01739DC1B3798C500B9F3FF /* logo.png */,
 				F106F8B41B19233E0091C930 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -248,8 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0F0A5AC1B3666B000D823AA /* logo.jpg in Resources */,
-				E0F0A5B01B36676500D823AA /* logo.png in Resources */,
+				E01739DD1B3798C500B9F3FF /* logo.png in Resources */,
 				F106F8BB1B19233E0091C930 /* Main.storyboard in Resources */,
 				F106F8C01B19233E0091C930 /* LaunchScreen.xib in Resources */,
 				F106F8BD1B19233E0091C930 /* Images.xcassets in Resources */,
